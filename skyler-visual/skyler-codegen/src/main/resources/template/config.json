@@ -1,0 +1,12 @@
+{
+  "project": {
+    "packageName": "com.skyler.cloud.skyler",
+    "version": "1.0.0",
+    "backendPath": "skyler",
+    "frontendPath": "skyler-ui"
+  },
+  "developer": {
+    "author": "skyler",
+    "email": "skyler4cloud@qq.com"
+  }
+}

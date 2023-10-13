@@ -1,0 +1,7 @@
+com.skyler.cloud.skyler.common.security.service.SkylerUserDetailsServiceImpl
+com.skyler.cloud.skyler.common.security.service.SkylerAppUserDetailsServiceImpl
+com.skyler.cloud.skyler.common.security.service.SkylerRedisOAuth2AuthorizationService
+com.skyler.cloud.skyler.common.security.service.SkylerRedisOAuth2AuthorizationConsentService
+com.skyler.cloud.skyler.common.security.component.SkylerSecurityInnerAspect
+com.skyler.cloud.skyler.common.security.component.SkylerSecurityMessageSourceConfiguration
+com.skyler.cloud.skyler.common.security.service.SkylerRemoteRegisteredClientRepository

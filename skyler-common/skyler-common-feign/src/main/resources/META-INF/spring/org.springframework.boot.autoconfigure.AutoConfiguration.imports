@@ -1,0 +1,4 @@
+com.skyler.cloud.skyler.common.feign.SkylerFeignAutoConfiguration
+com.skyler.cloud.skyler.common.feign.SkylerFeignRetryAutoConfiguration
+com.skyler.cloud.skyler.common.feign.sentinel.SentinelAutoConfiguration
+com.skyler.cloud.skyler.common.feign.sentinel.handle.GlobalBizExceptionHandler

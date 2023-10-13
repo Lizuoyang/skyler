@@ -1,0 +1,105 @@
+version: '3'
+services:
+  skyler-mysql:
+    build:
+      context: ./db
+    environment:
+      MYSQL_ROOT_HOST: "%"
+      MYSQL_ROOT_PASSWORD: root
+    restart: always
+    container_name: skyler-mysql
+    image: skyler-mysql
+    ports:
+      - 3306:3306
+    networks:
+      - spring_cloud_default
+
+  skyler-redis:
+    image: redis:7.0.0
+    ports:
+      - 6379:6379
+    restart: always
+    container_name: skyler-redis
+    hostname: skyler-redis
+    networks:
+      - spring_cloud_default
+
+  skyler-register:
+    build:
+      context: ./skyler-register
+    restart: always
+    ports:
+      - 8848:8848
+    container_name: skyler-register
+    hostname: skyler-register
+    image: skyler-register
+    networks:
+      - spring_cloud_default
+
+  skyler-gateway:
+    build:
+      context: ./skyler-gateway
+    restart: always
+    ports:
+      - 9999:9999
+    container_name: skyler-gateway
+    hostname: skyler-gateway
+    image: skyler-gateway
+    networks:
+      - spring_cloud_default
+
+  skyler-auth:
+    build:
+      context: ./skyler-auth
+    restart: always
+    container_name: skyler-auth
+    hostname: skyler-auth
+    image: skyler-auth
+    networks:
+      - spring_cloud_default
+
+  skyler-upms:
+    build:
+      context: ./skyler-upms/skyler-upms-biz
+    restart: always
+    container_name: skyler-upms
+    hostname: skyler-upms
+    image: skyler-upms
+    networks:
+      - spring_cloud_default
+
+  skyler-monitor:
+    build:
+      context: ./skyler-visual/skyler-monitor
+    restart: always
+    ports:
+      - 5001:5001
+    container_name: skyler-monitor
+    hostname: skyler-monitor
+    image: skyler-monitor
+    networks:
+      - spring_cloud_default
+
+  skyler-codegen:
+    build:
+      context: ./skyler-visual/skyler-codegen
+    restart: always
+    container_name: skyler-codegen
+    hostname: skyler-codegen
+    image: skyler-codegen
+    networks:
+      - spring_cloud_default
+
+  skyler-quartz:
+    build:
+      context: ./skyler-visual/skyler-quartz
+    restart: always
+    image: skyler-quartz
+    container_name: skyler-quartz
+    networks:
+      - spring_cloud_default
+
+networks:
+  spring_cloud_default:
+    name:  spring_cloud_default
+    driver: bridge

@@ -1,0 +1,6 @@
+com.skyler.cloud.skyler.common.core.config.TaskExecutorConfiguration
+com.skyler.cloud.skyler.common.core.config.JacksonConfiguration
+com.skyler.cloud.skyler.common.core.config.RedisTemplateConfiguration
+com.skyler.cloud.skyler.common.core.config.RestTemplateConfiguration
+com.skyler.cloud.skyler.common.core.util.SpringContextHolder
+com.skyler.cloud.skyler.common.core.config.WebMvcConfiguration
