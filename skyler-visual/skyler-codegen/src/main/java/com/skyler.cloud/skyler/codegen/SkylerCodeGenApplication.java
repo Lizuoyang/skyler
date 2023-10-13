@@ -20,6 +20,7 @@ package com.skyler.cloud.skyler.codegen;
 import com.skyler.cloud.skyler.common.datasource.annotation.EnableDynamicDataSource;
 import com.skyler.cloud.skyler.common.feign.annotation.EnableSkylerFeignClients;
 import com.skyler.cloud.skyler.common.security.annotation.EnableSkylerResourceServer;
+import com.skyler.cloud.skyler.common.swagger.annotation.EnableSkylerDoc;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -28,6 +29,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @author lengleng
  * @date 2018/07/29 代码生成模块
  */
+@EnableSkylerDoc("gen")
 @EnableDynamicDataSource
 @EnableSkylerFeignClients
 @EnableDiscoveryClient
