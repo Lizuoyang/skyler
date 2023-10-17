@@ -58,6 +58,9 @@ public class SysRole extends Model<SysRole> {
 	@Schema(description = "角色描述")
 	private String roleDesc;
 
+	@Schema(description = "数据范围（1：所有数据权限；2：自定义数据权限；3：本部门数据权限；4：本部门及以下数据权限；5：仅本人数据权限）")
+	private String dataScope;
+
 	/**
 	 * 创建人
 	 */
