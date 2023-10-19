@@ -4,6 +4,7 @@ import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.StrUtil;
 import com.skyler.cloud.skyler.admin.api.dto.UserInfo;
 import com.skyler.cloud.skyler.admin.api.entity.SysUser;
+import com.skyler.cloud.skyler.common.core.beans.SkylerUser;
 import com.skyler.cloud.skyler.common.core.constant.CommonConstants;
 import com.skyler.cloud.skyler.common.core.constant.SecurityConstants;
 import com.skyler.cloud.skyler.common.core.util.R;
@@ -67,7 +68,7 @@ public interface SkylerUserDetailsService extends UserDetailsService, Ordered {
 
 		// 构造security用户
 		return new SkylerUser(user.getUserId(), user.getDeptId(), user.getUsername(),
-				SecurityConstants.BCRYPT + user.getPassword(), user.getPhone(), true, true, true,
+				SecurityConstants.BCRYPT + user.getPassword(), user.getPhone(), info.getRoles(), info.getRoleDataScopes(),true, true, true,
 				StrUtil.equals(user.getLockFlag(), CommonConstants.STATUS_NORMAL), authorities);
 	}
 

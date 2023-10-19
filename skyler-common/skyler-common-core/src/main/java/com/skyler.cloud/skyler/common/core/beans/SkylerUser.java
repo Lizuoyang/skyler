@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.skyler.cloud.skyler.common.security.service;
+package com.skyler.cloud.skyler.common.core.beans;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
@@ -58,13 +58,28 @@ public class SkylerUser extends User implements OAuth2AuthenticatedPrincipal {
 	@Getter
 	private final String phone;
 
-	public SkylerUser(Long id, Long deptId, String username, String password, String phone, boolean enabled,
-			boolean accountNonExpired, boolean credentialsNonExpired, boolean accountNonLocked,
-			Collection<? extends GrantedAuthority> authorities) {
+	/**
+	 * 角色集合
+	 */
+	@Getter
+	@JsonSerialize(using = ToStringSerializer.class)
+	private Long[] roles;
+
+	/**
+	 * 角色数据权限集合
+	 */
+	@Getter
+	private String[] roleDataScopes;
+
+	public SkylerUser(Long id, Long deptId, String username, String password, String phone, Long[] roles, String[] roleDataScopes, boolean enabled,
+                      boolean accountNonExpired, boolean credentialsNonExpired, boolean accountNonLocked,
+                      Collection<? extends GrantedAuthority> authorities) {
 		super(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
 		this.id = id;
 		this.deptId = deptId;
 		this.phone = phone;
+		this.roles = roles;
+		this.roleDataScopes = roleDataScopes;
 	}
 
 	/**

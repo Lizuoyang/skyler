@@ -1,7 +1,7 @@
 package com.skyler.cloud.skyler.auth.support.core;
 
+import com.skyler.cloud.skyler.common.core.beans.SkylerUser;
 import com.skyler.cloud.skyler.common.core.constant.SecurityConstants;
-import com.skyler.cloud.skyler.common.security.service.SkylerUser;
 import org.springframework.security.oauth2.server.authorization.token.OAuth2TokenClaimsContext;
 import org.springframework.security.oauth2.server.authorization.token.OAuth2TokenClaimsSet;
 import org.springframework.security.oauth2.server.authorization.token.OAuth2TokenCustomizer;

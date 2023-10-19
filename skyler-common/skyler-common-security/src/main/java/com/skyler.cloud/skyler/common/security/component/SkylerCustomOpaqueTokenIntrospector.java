@@ -1,8 +1,8 @@
 package com.skyler.cloud.skyler.common.security.component;
 
 import cn.hutool.extra.spring.SpringUtil;
+import com.skyler.cloud.skyler.common.core.beans.SkylerUser;
 import com.skyler.cloud.skyler.common.core.constant.SecurityConstants;
-import com.skyler.cloud.skyler.common.security.service.SkylerUser;
 import com.skyler.cloud.skyler.common.security.service.SkylerUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

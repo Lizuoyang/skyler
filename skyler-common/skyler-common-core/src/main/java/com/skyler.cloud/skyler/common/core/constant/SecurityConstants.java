@@ -132,4 +132,9 @@ public interface SecurityConstants {
 	 */
 	String CUSTOM_CONSENT_PAGE_URI = "/token/confirm_access";
 
+	/**
+	 * 管理员ID
+	 */
+	Long ADMIN_ID = 1L;
+
 }

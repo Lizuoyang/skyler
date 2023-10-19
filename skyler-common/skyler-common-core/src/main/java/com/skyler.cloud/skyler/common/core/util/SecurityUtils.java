@@ -14,12 +14,11 @@
  * limitations under the License.
  */
 
-package com.skyler.cloud.skyler.common.security.util;
+package com.skyler.cloud.skyler.common.core.util;
 
 import cn.hutool.core.text.CharSequenceUtil;
-import cn.hutool.core.util.StrUtil;
+import com.skyler.cloud.skyler.common.core.beans.SkylerUser;
 import com.skyler.cloud.skyler.common.core.constant.SecurityConstants;
-import com.skyler.cloud.skyler.common.security.service.SkylerUser;
 import lombok.experimental.UtilityClass;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -82,6 +81,16 @@ public class SecurityUtils {
 				roleIds.add(Long.parseLong(id));
 			});
 		return roleIds;
+	}
+
+	/**
+	 * 是否为管理员
+	 *
+	 * @param userId 用户ID
+	 * @return 结果
+	 */
+	public static boolean isAdmin(Long userId) {
+		return SecurityConstants.ADMIN_ID.equals(userId);
 	}
 
 }

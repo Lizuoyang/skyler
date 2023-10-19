@@ -31,11 +31,6 @@
 
 
     <dependencies>
-        <!--core 工具类-->
-        <dependency>
-            <groupId>com.skyler.cloud</groupId>
-            <artifactId>skyler-common-core</artifactId>
-        </dependency>
         <!--feign 注解依赖-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

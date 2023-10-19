@@ -19,6 +19,7 @@ package com.skyler.cloud.skyler.common.security.service;
 import com.skyler.cloud.skyler.admin.api.dto.UserDTO;
 import com.skyler.cloud.skyler.admin.api.dto.UserInfo;
 import com.skyler.cloud.skyler.admin.api.feign.RemoteUserService;
+import com.skyler.cloud.skyler.common.core.beans.SkylerUser;
 import com.skyler.cloud.skyler.common.core.constant.CacheConstants;
 import com.skyler.cloud.skyler.common.core.constant.SecurityConstants;
 import com.skyler.cloud.skyler.common.core.util.R;

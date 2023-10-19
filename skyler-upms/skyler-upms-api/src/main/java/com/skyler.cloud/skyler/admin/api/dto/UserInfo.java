@@ -51,4 +51,10 @@ public class UserInfo implements Serializable {
 	@Schema(description = "角色标识集合")
 	private Long[] roles;
 
+	/**
+	 * 角色数据权限集合
+	 */
+	@Schema(description = "角色数据权限集合")
+	private String[] roleDataScopes;
+
 }

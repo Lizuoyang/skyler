@@ -25,6 +25,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.skyler.cloud.skyler.admin.api.dto.UserDTO;
 import com.skyler.cloud.skyler.admin.api.entity.SysUser;
 import com.skyler.cloud.skyler.admin.api.vo.UserVO;
+import com.skyler.cloud.skyler.common.mybatis.annotation.DataColumn;
+import com.skyler.cloud.skyler.common.mybatis.annotation.DataPermission;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -52,9 +54,12 @@ public interface SysUserMapper extends BaseMapper<SysUser> {
 	 * 分页查询用户信息（含角色）
 	 * @param page 分页
 	 * @param userDTO 查询参数
-	 * @param dataScope
 	 * @return list
 	 */
+	@DataPermission({
+		@DataColumn(key = "deptName", value = "u.dept_id"),
+		@DataColumn(key = "userName", value = "u.user_id")
+	})
 	IPage<UserVO> getUserVosPage(Page page, @Param("query") UserDTO userDTO);
 
 	/**
@@ -67,7 +72,6 @@ public interface SysUserMapper extends BaseMapper<SysUser> {
 	/**
 	 * 查询用户列表
 	 * @param userDTO 查询条件
-	 * @param dataScope 数据权限声明
 	 * @return
 	 */
 	List<UserVO> selectVoList(@Param("query") UserDTO userDTO);

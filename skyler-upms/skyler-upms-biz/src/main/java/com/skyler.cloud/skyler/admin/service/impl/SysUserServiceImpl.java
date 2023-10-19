@@ -29,21 +29,31 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.skyler.cloud.skyler.admin.api.dto.UserDTO;
 import com.skyler.cloud.skyler.admin.api.dto.UserInfo;
-import com.skyler.cloud.skyler.admin.api.entity.*;
+import com.skyler.cloud.skyler.admin.api.entity.SysDept;
+import com.skyler.cloud.skyler.admin.api.entity.SysMenu;
+import com.skyler.cloud.skyler.admin.api.entity.SysPost;
+import com.skyler.cloud.skyler.admin.api.entity.SysRole;
+import com.skyler.cloud.skyler.admin.api.entity.SysUser;
+import com.skyler.cloud.skyler.admin.api.entity.SysUserPost;
+import com.skyler.cloud.skyler.admin.api.entity.SysUserRole;
 import com.skyler.cloud.skyler.admin.api.util.ParamResolver;
 import com.skyler.cloud.skyler.admin.api.vo.UserExcelVO;
 import com.skyler.cloud.skyler.admin.api.vo.UserVO;
 import com.skyler.cloud.skyler.admin.mapper.SysUserMapper;
 import com.skyler.cloud.skyler.admin.mapper.SysUserPostMapper;
 import com.skyler.cloud.skyler.admin.mapper.SysUserRoleMapper;
-import com.skyler.cloud.skyler.admin.service.*;
+import com.skyler.cloud.skyler.admin.service.SysDeptService;
+import com.skyler.cloud.skyler.admin.service.SysMenuService;
+import com.skyler.cloud.skyler.admin.service.SysPostService;
+import com.skyler.cloud.skyler.admin.service.SysRoleService;
+import com.skyler.cloud.skyler.admin.service.SysUserService;
 import com.skyler.cloud.skyler.common.core.constant.CacheConstants;
 import com.skyler.cloud.skyler.common.core.constant.CommonConstants;
 import com.skyler.cloud.skyler.common.core.exception.ErrorCodes;
 import com.skyler.cloud.skyler.common.core.util.MsgUtils;
 import com.skyler.cloud.skyler.common.core.util.R;
-import com.skyler.cloud.skyler.common.security.util.SecurityUtils;
 import com.pig4cloud.plugin.excel.vo.ErrorMessage;
+import com.skyler.cloud.skyler.common.core.util.SecurityUtils;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -138,12 +148,18 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 	public UserInfo findUserInfo(SysUser sysUser) {
 		UserInfo userInfo = new UserInfo();
 		userInfo.setSysUser(sysUser);
+		List<SysRole> rolesByUserId = sysRoleService.findRolesByUserId(sysUser.getUserId());
 		// 设置角色列表 （ID）
-		List<Long> roleIds = sysRoleService.findRolesByUserId(sysUser.getUserId())
-			.stream()
+		List<Long> roleIds = rolesByUserId.stream()
 			.map(SysRole::getRoleId)
 			.collect(Collectors.toList());
 		userInfo.setRoles(ArrayUtil.toArray(roleIds, Long.class));
+
+		// 设置角色数据权限列表 （DATA_SCOPE）
+		List<String> roleDataScopes = rolesByUserId.stream()
+				.map(SysRole::getDataScope)
+				.collect(Collectors.toList());
+		userInfo.setRoleDataScopes(ArrayUtil.toArray(roleDataScopes, String.class));
 
 		// 设置权限列表（menu.permission）
 		Set<String> permissions = new HashSet<>();
