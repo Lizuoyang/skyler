@@ -45,6 +45,13 @@ public interface SysMenuService extends IService<SysMenu> {
 	List<SysMenu> findMenuByRoleId(Long roleId);
 
 	/**
+	 * 通过租户套餐编号查询URL 权限
+	 * @param tenantPackageId 租户套餐ID
+	 * @return 菜单列表
+	 */
+	List<SysMenu> findMenuByTenantPackgeId(Long tenantPackageId);
+
+	/**
 	 * 级联删除菜单
 	 * @param id 菜单ID
 	 * @return 成功、失败

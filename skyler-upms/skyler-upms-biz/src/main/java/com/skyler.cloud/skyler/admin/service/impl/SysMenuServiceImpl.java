@@ -38,7 +38,6 @@ import com.skyler.cloud.skyler.common.core.constant.enums.MenuTypeEnum;
 import com.skyler.cloud.skyler.common.core.exception.ErrorCodes;
 import com.skyler.cloud.skyler.common.core.util.MsgUtils;
 import com.skyler.cloud.skyler.common.core.util.R;
-import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -47,6 +46,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.validation.constraints.NotNull;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -74,6 +74,12 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
 	@Cacheable(value = CacheConstants.MENU_DETAILS, key = "#roleId", unless = "#result.isEmpty()")
 	public List<SysMenu> findMenuByRoleId(Long roleId) {
 		return baseMapper.listMenusByRoleId(roleId);
+	}
+
+	@Override
+	@Cacheable(value = CacheConstants.TENANT_MENU_DETAILS, key = "#tenantPackageId", unless = "#result.isEmpty()")
+	public List<SysMenu> findMenuByTenantPackgeId(Long tenantPackageId) {
+		return baseMapper.listMenusByTenantPackageId(tenantPackageId);
 	}
 
 	@Override

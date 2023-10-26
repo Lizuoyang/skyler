@@ -378,24 +378,47 @@ INSERT INTO `sys_menu` VALUES (9064, '导出', NULL, 'codegen_group_export', NUL
 INSERT INTO `sys_menu` VALUES (9065, '字段管理', 'field', NULL, '/gen/field-type/index', 9050, 'iconfont icon-fuwenben', '1', 0, '0', '0', '0', 'admin', '2023-02-23 20:05:09', 'admin', '2023-07-05 10:27:31', '0');
 
 -- 租户表菜单菜单SQL
+INSERT INTO `sys_menu` VALUES (9066, '租户管理', 'log', NULL, '/admin/tenant', 2000, 'iconfont icon-siweidaotu', '1', 0, '0', '0', '0', 'admin', '2023-03-02 12:26:42', 'admin', '2023-07-05 10:27:53', '0');
 insert into sys_menu ( menu_id,parent_id, path, permission, menu_type, icon, del_flag, create_time, sort_order, update_time, name, en_name)
-values (1698116717211, '2000', '/admin/teant/index', '', '0', 'fa fa-universal-access', '0', null , '8', null , '租户管理', 'teant');
+values (1698116717211, '9066', '/admin/tenant/index', '', '0', 'fa fa-universal-access', '0', null , '8', null , '租户配置', 'tenant');
 
 -- 租户表菜单对应按钮SQL
 insert into sys_menu ( menu_id,parent_id, permission, menu_type, path, icon, del_flag, create_time, sort_order, update_time, name)
-values (1698116717212,1698116717211, 'admin_teant_view', '1', null, '1',  '0', null, '0', null, '租户查看');
+values (1698116717212,1698116717211, 'admin_tenant_view', '1', null, '1',  '0', null, '0', null, '租户查看');
 
 insert into sys_menu ( menu_id,parent_id, permission, menu_type, path, icon, del_flag, create_time, sort_order, update_time, name)
-values (1698116717213,1698116717211, 'admin_teant_add', '1', null, '1',  '0', null, '1', null, '租户新增');
+values (1698116717213,1698116717211, 'admin_tenant_add', '1', null, '1',  '0', null, '1', null, '租户新增');
 
 insert into sys_menu (menu_id, parent_id, permission, menu_type, path, icon,  del_flag, create_time, sort_order, update_time, name)
-values (1698116717214,1698116717211, 'admin_teant_edit', '1', null, '1',  '0', null, '2', null, '租户修改');
+values (1698116717214,1698116717211, 'admin_tenant_edit', '1', null, '1',  '0', null, '2', null, '租户修改');
 
 insert into sys_menu (menu_id, parent_id, permission, menu_type, path, icon, del_flag, create_time, sort_order, update_time, name)
-values (1698116717215,1698116717211, 'admin_teant_del', '1', null, '1',  '0', null, '3', null, '租户删除');
+values (1698116717215,1698116717211, 'admin_tenant_del', '1', null, '1',  '0', null, '3', null, '租户删除');
 
 insert into sys_menu ( menu_id,parent_id, permission, menu_type, path, icon, del_flag, create_time, sort_order, update_time, name)
-values (1698116717216,1698116717211, 'admin_teant_export', '1', null, '1',  '0', null, '3', null, '导入导出');
+values (1698116717216,1698116717211, 'admin_tenant_export', '1', null, '1',  '0', null, '3', null, '导入导出');
+
+-- 该脚本不要直接执行， 注意维护菜单的父节点ID 默认 父节点-1
+
+-- 租户套餐表菜单SQL
+insert into sys_menu ( menu_id,parent_id, path, permission, menu_type, icon, del_flag, create_time, sort_order, update_time, name, en_name)
+values (1698300743797, '9066', '/admin/tenantPackge/index', '', '0', 'fa fa-gift', '0', null , '9', null , '租户套餐', 'tenantPackage');
+
+-- 租户套餐表菜单对应按钮SQL
+insert into sys_menu ( menu_id,parent_id, permission, menu_type, path, icon, del_flag, create_time, sort_order, update_time, name)
+values (1698300743798,1698300743797, 'admin_tenantPackge_view', '1', null, '1',  '0', null, '0', null, '租户套餐表查看');
+
+insert into sys_menu ( menu_id,parent_id, permission, menu_type, path, icon, del_flag, create_time, sort_order, update_time, name)
+values (1698300743799,1698300743797, 'admin_tenantPackge_add', '1', null, '1',  '0', null, '1', null, '租户套餐表新增');
+
+insert into sys_menu (menu_id, parent_id, permission, menu_type, path, icon,  del_flag, create_time, sort_order, update_time, name)
+values (1698300743800,1698300743797, 'admin_tenantPackge_edit', '1', null, '1',  '0', null, '2', null, '租户套餐表修改');
+
+insert into sys_menu (menu_id, parent_id, permission, menu_type, path, icon, del_flag, create_time, sort_order, update_time, name)
+values (1698300743801,1698300743797, 'admin_tenantPackge_del', '1', null, '1',  '0', null, '3', null, '租户套餐表删除');
+
+insert into sys_menu ( menu_id,parent_id, permission, menu_type, path, icon, del_flag, create_time, sort_order, update_time, name)
+values (1698300743802,1698300743797, 'admin_tenantPackge_export', '1', null, '1',  '0', null, '3', null, '导入导出');
 COMMIT;
 
 -- ----------------------------
@@ -731,7 +754,6 @@ CREATE TABLE `sys_tenant_package`  (
   `name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '套餐名',
   `status` tinyint NOT NULL DEFAULT 0 COMMENT '租户状态（0正常 1停用）',
   `remark` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '备注',
-  `menu_ids` varchar(2048) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '关联的菜单编号',
   `create_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT ' ' COMMENT '创建人',
   `update_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT ' ' COMMENT '修改人',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
@@ -739,3 +761,13 @@ CREATE TABLE `sys_tenant_package`  (
   `del_flag` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '0' COMMENT '删除标记，0未删除，1已删除',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 112 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '租户套餐表';
+
+-- ----------------------------
+-- Table structure for sys_tenant_package_menu
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_tenant_package_menu`;
+CREATE TABLE `sys_tenant_package_menu` (
+    `tenant_package_id` bigint NOT NULL COMMENT '租户套餐ID',
+    `menu_id` bigint NOT NULL COMMENT '菜单ID',
+    PRIMARY KEY (`tenant_package_id`,`menu_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='租户套餐菜单表';

@@ -40,6 +40,11 @@ public interface CacheConstants {
 	String MENU_DETAILS = "menu_details";
 
 	/**
+	 * 租户菜单信息缓存
+	 */
+	String TENANT_MENU_DETAILS = "tenant_menu_details";
+
+	/**
 	 * 用户信息缓存
 	 */
 	String USER_DETAILS = "user_details";

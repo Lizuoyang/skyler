@@ -43,4 +43,11 @@ public interface SysMenuMapper extends BaseMapper<SysMenu> {
 	 */
 	List<SysMenu> listMenusByRoleId(Long roleId);
 
+	/**
+	 * 通过租户套餐编号查询菜单
+	 * @param tenantPackageId 租户套餐ID
+	 * @return
+	 */
+	List<SysMenu> listMenusByTenantPackageId(Long tenantPackageId);
+
 }

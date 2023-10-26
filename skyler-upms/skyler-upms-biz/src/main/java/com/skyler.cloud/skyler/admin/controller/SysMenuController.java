@@ -92,6 +92,16 @@ public class SysMenuController {
 	}
 
 	/**
+	 * 返回租户套餐的菜单集合
+	 * @param tenantPackageId 角色ID
+	 * @return 属性集合
+	 */
+	@GetMapping("/tenantPackge/tree/{tenantPackageId}")
+	public R getTenantPackgeTree(@PathVariable Long tenantPackageId) {
+		return R.ok(sysMenuService.findMenuByTenantPackgeId(tenantPackageId).stream().map(SysMenu::getMenuId).collect(Collectors.toList()));
+	}
+
+	/**
 	 * 通过ID查询菜单的详细信息
 	 * @param id 菜单ID
 	 * @return 菜单详细信息

@@ -64,6 +64,30 @@
 		ORDER BY sys_menu.sort_order DESC
 	</select>
 
+	<!--通过租户查询菜单信息-->
+	<select id="listMenusByTenantPackageId" resultMap="BaseResultMap">
+		SELECT sys_menu.menu_id,
+			   sys_menu.name,
+			   sys_menu.en_name,
+			   sys_menu.permission,
+			   sys_menu.path,
+			   sys_menu.parent_id,
+			   sys_menu.icon,
+			   sys_menu.sort_order,
+			   sys_menu.keep_alive,
+			   sys_menu.menu_type,
+			   sys_menu.create_time,
+			   sys_menu.update_time,
+			   sys_menu.del_flag,
+			   sys_menu.embedded,
+			   sys_menu.visible
+		FROM sys_menu
+					 LEFT JOIN sys_tenant_package_menu ON sys_menu.menu_id = sys_tenant_package_menu.menu_id
+		WHERE sys_menu.del_flag = '0'
+		  AND sys_tenant_package_menu.tenant_package_id = #{tenantPackageId}
+		ORDER BY sys_menu.sort_order DESC
+	</select>
+
 	<!--通过角色ID 查询权限-->
 	<select id="listPermissionsByRoleIds" resultType="java.lang.String">
 		SELECT m.permission
