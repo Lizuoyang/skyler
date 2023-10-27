@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.pig4cloud.plugin.excel.annotation.ResponseExcel;
+import com.skyler.cloud.skyler.admin.api.dto.TenantPackageDTO;
 import com.skyler.cloud.skyler.admin.api.entity.SysTenantPackageEntity;
 import com.skyler.cloud.skyler.admin.service.SysTenantPackageService;
 import com.skyler.cloud.skyler.common.core.util.R;
@@ -76,15 +77,15 @@ public class SysTenantPackageController {
 
     /**
      * 新增租户套餐表
-     * @param sysTenantPackage 租户套餐表
+     * @param tenantPackageDTO 租户套餐传输对象
      * @return R
      */
     @Operation(summary = "新增租户套餐表" , description = "新增租户套餐表" )
     @SysLog("新增租户套餐表" )
     @PostMapping
     @PreAuthorize("@pms.hasPermission('admin_tenantPackge_add')" )
-    public R save(@RequestBody SysTenantPackageEntity sysTenantPackage) {
-        return R.ok(sysTenantPackageService.save(sysTenantPackage));
+    public R save(@RequestBody TenantPackageDTO tenantPackageDTO) {
+        return R.ok(sysTenantPackageService.saveTeantMenu(tenantPackageDTO));
     }
 
     /**

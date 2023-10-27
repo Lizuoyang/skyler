@@ -96,8 +96,8 @@ public class SysMenuController {
 	 * @param tenantPackageId 角色ID
 	 * @return 属性集合
 	 */
-	@GetMapping("/tenantPackge/tree/{tenantPackageId}")
-	public R getTenantPackgeTree(@PathVariable Long tenantPackageId) {
+	@GetMapping("/tenant/tree/{tenantPackageId}")
+	public R getTenantTree(@PathVariable Long tenantPackageId) {
 		return R.ok(sysMenuService.findMenuByTenantPackgeId(tenantPackageId).stream().map(SysMenu::getMenuId).collect(Collectors.toList()));
 	}
 
