@@ -38,8 +38,8 @@ import java.util.Objects;
  */
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/teant" )
-@Tag(description = "teant" , name = "租户表管理" )
+@RequestMapping("/tenant" )
+@Tag(description = "tenant" , name = "租户表管理" )
 @SecurityRequirement(name = HttpHeaders.AUTHORIZATION)
 public class SysTenantController {
 
@@ -53,7 +53,7 @@ public class SysTenantController {
      */
     @Operation(summary = "分页查询" , description = "分页查询" )
     @GetMapping("/page" )
-    @PreAuthorize("@pms.hasPermission('admin_teant_view')" )
+    @PreAuthorize("@pms.hasPermission('admin_tenant_view')" )
     public R getSysTenantPage(@ParameterObject Page page, @ParameterObject SysTenantEntity sysTenant) {
         LambdaQueryWrapper<SysTenantEntity> wrapper = Wrappers.lambdaQuery();
 		wrapper.like(StrUtil.isNotBlank(sysTenant.getName()),SysTenantEntity::getName,sysTenant.getName());
@@ -69,7 +69,7 @@ public class SysTenantController {
      */
     @Operation(summary = "通过id查询" , description = "通过id查询" )
     @GetMapping("/{id}" )
-    @PreAuthorize("@pms.hasPermission('admin_teant_view')" )
+    @PreAuthorize("@pms.hasPermission('admin_tenant_view')" )
     public R getById(@PathVariable("id" ) Long id) {
         return R.ok(sysTenantService.getById(id));
     }
@@ -82,7 +82,7 @@ public class SysTenantController {
     @Operation(summary = "新增租户表" , description = "新增租户表" )
     @SysLog("新增租户表" )
     @PostMapping
-    @PreAuthorize("@pms.hasPermission('admin_teant_add')" )
+    @PreAuthorize("@pms.hasPermission('admin_tenant_add')" )
     public R save(@RequestBody SysTenantEntity sysTenant) {
         return R.ok(sysTenantService.save(sysTenant));
     }
@@ -95,7 +95,7 @@ public class SysTenantController {
     @Operation(summary = "修改租户表" , description = "修改租户表" )
     @SysLog("修改租户表" )
     @PutMapping
-    @PreAuthorize("@pms.hasPermission('admin_teant_edit')" )
+    @PreAuthorize("@pms.hasPermission('admin_tenant_edit')" )
     public R updateById(@RequestBody SysTenantEntity sysTenant) {
         return R.ok(sysTenantService.updateById(sysTenant));
     }
@@ -108,7 +108,7 @@ public class SysTenantController {
     @Operation(summary = "通过id删除租户表" , description = "通过id删除租户表" )
     @SysLog("通过id删除租户表" )
     @DeleteMapping
-    @PreAuthorize("@pms.hasPermission('admin_teant_del')" )
+    @PreAuthorize("@pms.hasPermission('admin_tenant_del')" )
     public R removeById(@RequestBody Long[] ids) {
         return R.ok(sysTenantService.removeBatchByIds(CollUtil.toList(ids)));
     }
@@ -122,7 +122,7 @@ public class SysTenantController {
      */
     @ResponseExcel
     @GetMapping("/export")
-    @PreAuthorize("@pms.hasPermission('admin_teant_export')" )
+    @PreAuthorize("@pms.hasPermission('admin_tenant_export')" )
     public List<SysTenantEntity> export(SysTenantEntity sysTenant,Long[] ids) {
         return sysTenantService.list(Wrappers.lambdaQuery(sysTenant).in(ArrayUtil.isNotEmpty(ids), SysTenantEntity::getId, ids));
     }

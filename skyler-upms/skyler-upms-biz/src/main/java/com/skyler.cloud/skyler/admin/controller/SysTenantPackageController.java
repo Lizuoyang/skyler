@@ -85,7 +85,7 @@ public class SysTenantPackageController {
     @PostMapping
     @PreAuthorize("@pms.hasPermission('admin_tenantPackge_add')" )
     public R save(@RequestBody TenantPackageDTO tenantPackageDTO) {
-        return R.ok(sysTenantPackageService.saveTeantMenu(tenantPackageDTO));
+        return R.ok(sysTenantPackageService.saveTenantMenu(tenantPackageDTO));
     }
 
     /**

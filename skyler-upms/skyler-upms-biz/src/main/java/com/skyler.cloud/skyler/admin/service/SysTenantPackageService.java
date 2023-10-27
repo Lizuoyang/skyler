@@ -6,5 +6,5 @@ import com.skyler.cloud.skyler.admin.api.entity.SysTenantPackageEntity;
 
 public interface SysTenantPackageService extends IService<SysTenantPackageEntity> {
 
-    boolean saveTeantMenu(TenantPackageDTO tenantPackageDTO);
+    boolean saveTenantMenu(TenantPackageDTO tenantPackageDTO);
 }

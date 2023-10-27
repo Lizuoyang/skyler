@@ -32,7 +32,7 @@ public class SysTenantPackageServiceImpl extends ServiceImpl<SysTenantPackageMap
 	private final SysTenantPackageMenuService tenantPackageMenuService;
 
 	@Override
-	public boolean saveTeantMenu(TenantPackageDTO tenantPackageDTO) {
+	public boolean saveTenantMenu(TenantPackageDTO tenantPackageDTO) {
 		SysTenantPackageEntity saveEntity = new SysTenantPackageEntity();
 		BeanCopyUtils.copy(tenantPackageDTO, saveEntity);
 		this.save(saveEntity);
