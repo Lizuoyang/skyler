@@ -127,4 +127,13 @@ public class SysTenantPackageController {
     public List<SysTenantPackageEntity> export(SysTenantPackageEntity sysTenantPackage,Long[] ids) {
         return sysTenantPackageService.list(Wrappers.lambdaQuery(sysTenantPackage).in(ArrayUtil.isNotEmpty(ids), SysTenantPackageEntity::getId, ids));
     }
+
+	/**
+	 * 查询全部套餐
+	 * @return {@link List}<{@link SysTenantPackageEntity}>
+	 */
+	@GetMapping("/all")
+	public R getAllTenantPackage() {
+		return R.ok(sysTenantPackageService.list());
+	}
 }

@@ -77,7 +77,7 @@ public class SysTenantPackageEntity extends Model<SysTenantPackageEntity> {
 	* 删除标记，0未删除，1已删除
 	*/
     @TableLogic
-		@TableField(fill = FieldFill.INSERT)
+	@TableField(fill = FieldFill.INSERT)
     @Schema(description="删除标记，0未删除，1已删除")
     private String delFlag;
 }
