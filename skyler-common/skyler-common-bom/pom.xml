@@ -40,6 +40,7 @@
         <sentinel.version>1.8.4</sentinel.version>
 		<lombok.version>1.18.30</lombok.version>
 		<mapstruct.version>1.5.5.Final</mapstruct.version>
+		<guava.version>32.1.2-jre</guava.version>
     </properties>
 
     <!-- 定义全局jar版本,模块使用需要再次引入但不用写版本号-->
@@ -234,6 +235,12 @@
                     </exclusion>
                 </exclusions>
             </dependency>
+			<!-- google 工具类 -->
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${guava.version}</version>
+			</dependency>
         </dependencies>
     </dependencyManagement>
 

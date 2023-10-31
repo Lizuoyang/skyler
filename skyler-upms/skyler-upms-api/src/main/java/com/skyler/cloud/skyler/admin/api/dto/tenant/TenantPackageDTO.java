@@ -1,4 +1,4 @@
-package com.skyler.cloud.skyler.admin.api.dto;
+package com.skyler.cloud.skyler.admin.api.dto.tenant;
 
 import com.skyler.cloud.skyler.admin.api.entity.SysTenantPackageEntity;
 import io.swagger.v3.oas.annotations.media.Schema;

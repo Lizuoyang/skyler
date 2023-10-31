@@ -1,6 +1,6 @@
 package com.skyler.cloud.skyler.admin.api.convert.tenant;
 
-import com.skyler.cloud.skyler.admin.api.dto.TenantPackageDTO;
+import com.skyler.cloud.skyler.admin.api.dto.tenant.TenantPackageDTO;
 import com.skyler.cloud.skyler.admin.api.entity.SysTenantPackageEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

@@ -8,7 +8,8 @@ import cn.hutool.core.util.ClassUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import com.skyler.cloud.skyler.common.core.beans.SkylerUser;
-import com.skyler.cloud.skyler.common.core.exception.ServiceException;
+import com.skyler.cloud.skyler.common.core.exception.enums.ErrorCodeEnum;
+import com.skyler.cloud.skyler.common.core.exception.utils.ServiceExceptionUtil;
 import com.skyler.cloud.skyler.common.core.util.SecurityUtils;
 import com.skyler.cloud.skyler.common.core.util.SpringUtils;
 import com.skyler.cloud.skyler.common.core.util.StreamUtils;
@@ -97,7 +98,7 @@ public class SkylerDataPermissionHandler {
 				return parenthesis;
 			}
 		} catch (JSQLParserException e) {
-			throw new ServiceException("数据权限解析异常 => " + e.getMessage());
+			throw ServiceExceptionUtil.exception(ErrorCodeEnum.DATA_PERMISSION_EXCEPTION, e.getMessage());
 		}
 	}
 
@@ -116,7 +117,7 @@ public class SkylerDataPermissionHandler {
 			// 获取角色权限泛型
 			DataScopeType type = DataScopeType.findCode(dataScope);
 			if (ObjectUtil.isNull(type)) {
-				throw new ServiceException("角色数据范围异常 => " + dataScope);
+				throw ServiceExceptionUtil.exception(ErrorCodeEnum.ROLE_DATA_EXCEPTION, dataScope);
 			}
 			// 全部数据权限直接返回
 			if (type == DataScopeType.ALL) {
@@ -125,7 +126,7 @@ public class SkylerDataPermissionHandler {
 			boolean isSuccess = false;
 			for (DataColumn dataColumn : dataColumns) {
 				if (dataColumn.key().length != dataColumn.value().length) {
-					throw new ServiceException("角色数据范围异常 => key与value长度不匹配");
+					throw ServiceExceptionUtil.exception(ErrorCodeEnum.ROLE_DATA_EXCEPTION, "key与value长度不匹配");
 				}
 				// 不包含 key 变量 则不处理
 				if (!StrUtil.containsAny(type.getSqlTemplate(),

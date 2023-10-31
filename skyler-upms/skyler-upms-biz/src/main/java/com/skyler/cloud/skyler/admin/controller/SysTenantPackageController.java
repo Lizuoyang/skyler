@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.pig4cloud.plugin.excel.annotation.ResponseExcel;
-import com.skyler.cloud.skyler.admin.api.dto.TenantPackageDTO;
+import com.skyler.cloud.skyler.admin.api.dto.tenant.TenantPackageDTO;
 import com.skyler.cloud.skyler.admin.api.entity.SysTenantPackageEntity;
 import com.skyler.cloud.skyler.admin.service.SysTenantPackageService;
 import com.skyler.cloud.skyler.common.core.util.R;

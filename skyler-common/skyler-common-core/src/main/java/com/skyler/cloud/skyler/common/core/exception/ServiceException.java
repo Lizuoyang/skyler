@@ -16,6 +16,7 @@
 
 package com.skyler.cloud.skyler.common.core.exception;
 
+import com.skyler.cloud.skyler.common.core.exception.enums.ErrorCodeEnum;
 import lombok.NoArgsConstructor;
 
 /**
@@ -27,20 +28,49 @@ public class ServiceException extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;
 
-	public ServiceException(String message) {
-		super(message);
+	/**
+	 * 业务错误码
+	 *
+	 */
+	private Integer code;
+	/**
+	 * 错误提示
+	 */
+	private String message;
+
+	/**
+	 * 空构造方法，避免反序列化问题
+	 */
+	public ServiceException() {
 	}
 
-	public ServiceException(Throwable cause) {
-		super(cause);
+	public ServiceException(ErrorCodeEnum errorCode) {
+		this.code = errorCode.getCode();
+		this.message = errorCode.getMsg();
 	}
 
-	public ServiceException(String message, Throwable cause) {
-		super(message, cause);
+	public ServiceException(Integer code, String message) {
+		this.code = code;
+		this.message = message;
 	}
 
-	public ServiceException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-		super(message, cause, enableSuppression, writableStackTrace);
+	public Integer getCode() {
+		return code;
+	}
+
+	public ServiceException setCode(Integer code) {
+		this.code = code;
+		return this;
+	}
+
+	@Override
+	public String getMessage() {
+		return message;
+	}
+
+	public ServiceException setMessage(String message) {
+		this.message = message;
+		return this;
 	}
 
 }
