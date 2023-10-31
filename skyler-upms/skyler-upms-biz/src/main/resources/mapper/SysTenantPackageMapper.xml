@@ -8,6 +8,7 @@
         <id property="name" column="name"/>
         <id property="status" column="status"/>
         <id property="remark" column="remark"/>
+        <id property="menuIds" column="menu_ids"/>
         <id property="createBy" column="create_by"/>
         <id property="createTime" column="create_time"/>
         <id property="updateBy" column="update_by"/>

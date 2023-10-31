@@ -45,6 +45,12 @@ public class SysTenantPackageEntity extends Model<SysTenantPackageEntity> {
     @Schema(description="备注")
     private String remark;
 
+    /**
+	* 关联的菜单编号
+	*/
+    @Schema(description="关联的菜单编号")
+    private String menuIds;
+
 	/**
 	* 创建人
 	*/

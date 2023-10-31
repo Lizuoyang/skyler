@@ -17,8 +17,5 @@ import lombok.EqualsAndHashCode;
 @Schema(description = "租户套餐传输对象")
 @EqualsAndHashCode(callSuper = true)
 public class TenantPackageDTO extends SysTenantPackageEntity {
-	/**
-	 * 菜单列表
-	 */
-	private String menuIds;
+
 }

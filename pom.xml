@@ -33,6 +33,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <spring-boot-admin.version>2.7.10</spring-boot-admin.version>
         <spring.authorization.version>0.4.3</spring.authorization.version>
         <captcha.version>2.2.3</captcha.version>
@@ -52,6 +53,9 @@
         <docker.password>password</docker.password>
         <git.commit.plugin>4.9.9</git.commit.plugin>
         <spring.checkstyle.plugin>0.0.39</spring.checkstyle.plugin>
+
+		<lombok.version>1.18.30</lombok.version>
+		<mapstruct.version>1.5.5.Final</mapstruct.version>
     </properties>
 
     <!-- 以下依赖 全局所有的模块都会引入  -->
@@ -84,6 +88,7 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
+			<version>${lombok.version}</version>
         </dependency>
         <!--测试依赖-->
         <dependency>
@@ -167,6 +172,32 @@
                         </execution>
                     </executions>
                 </plugin>
+				<!-- maven-compiler-plugin 插件，解决 Lombok + MapStruct 组合 -->
+				<!-- https://stackoverflow.com/questions/33483697/re-run-spring-boot-configuration-annotation-processor-to-update-generated-metada -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven-compiler-plugin.version}</version>
+					<configuration>
+						<annotationProcessorPaths>
+							<path>
+								<groupId>org.springframework.boot</groupId>
+								<artifactId>spring-boot-configuration-processor</artifactId>
+								<version>${spring-boot.version}</version>
+							</path>
+							<path>
+								<groupId>org.projectlombok</groupId>
+								<artifactId>lombok</artifactId>
+								<version>${lombok.version}</version>
+							</path>
+							<path>
+								<groupId>org.mapstruct</groupId>
+								<artifactId>mapstruct-processor</artifactId>
+								<version>${mapstruct.version}</version>
+							</path>
+						</annotationProcessorPaths>
+					</configuration>
+				</plugin>
                 <plugin>
                     <groupId>io.fabric8</groupId>
                     <artifactId>docker-maven-plugin</artifactId>
