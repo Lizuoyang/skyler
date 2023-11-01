@@ -22,6 +22,11 @@ package com.skyler.cloud.skyler.admin.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.skyler.cloud.skyler.admin.api.entity.SysRoleMenu;
 
+import java.util.Collection;
+import java.util.Set;
+
+import static java.util.Collections.singleton;
+
 /**
  * <p>
  * 角色菜单表 服务类
@@ -39,5 +44,23 @@ public interface SysRoleMenuService extends IService<SysRoleMenu> {
 	 * @return
 	 */
 	Boolean saveRoleMenus(Long roleId, String menuIds);
+
+	/**
+	 * 获得角色拥有的菜单编号集合
+	 *
+	 * @param roleId 角色编号
+	 * @return 菜单编号集合
+	 */
+	default Set<Long> getRoleMenuListByRoleId(Long roleId) {
+		return getRoleMenuListByRoleId(singleton(roleId));
+	}
+
+	/**
+	 * 获得角色们拥有的菜单编号集合
+	 *
+	 * @param roleIds 角色编号数组
+	 * @return 菜单编号集合
+	 */
+	Set<Long> getRoleMenuListByRoleId(Collection<Long> roleIds);
 
 }

@@ -35,6 +35,7 @@ import java.util.List;
  */
 @UtilityClass
 public class SecurityUtils {
+	public static final String HEADER_TENANT_ID = "tenant-id";
 
 	/**
 	 * 获取Authentication

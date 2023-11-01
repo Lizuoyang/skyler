@@ -1,6 +1,7 @@
 package com.skyler.cloud.skyler.admin.api.convert.tenant;
 
-import com.skyler.cloud.skyler.admin.api.dto.tenant.TenantPackageDTO;
+import com.skyler.cloud.skyler.admin.api.dto.tenant.TenantPackageCreateDTO;
+import com.skyler.cloud.skyler.admin.api.dto.tenant.TenantPackageUpdateDTO;
 import com.skyler.cloud.skyler.admin.api.entity.SysTenantPackageEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
@@ -14,5 +15,7 @@ import org.mapstruct.factory.Mappers;
 public interface TenantPackageConvert {
 	TenantPackageConvert INSTANCE = Mappers.getMapper(TenantPackageConvert.class);
 
-	SysTenantPackageEntity convert (TenantPackageDTO tenantPackageDTO);
+	SysTenantPackageEntity convert (TenantPackageCreateDTO tenantPackageDTO);
+
+	SysTenantPackageEntity convert (TenantPackageUpdateDTO tenantPackageDTO);
 }

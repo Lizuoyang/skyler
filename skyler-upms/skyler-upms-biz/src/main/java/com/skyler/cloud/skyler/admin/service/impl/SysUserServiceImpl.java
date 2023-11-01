@@ -102,7 +102,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 	 */
 	@Override
 	@Transactional(rollbackFor = Exception.class)
-	public Boolean saveUser(UserDTO userDto) {
+	public Long saveUser(UserDTO userDto) {
 		SysUser sysUser = new SysUser();
 		BeanUtils.copyProperties(userDto, sysUser);
 		sysUser.setDelFlag(CommonConstants.STATUS_NORMAL);
@@ -136,7 +136,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 			userRole.setRoleId(roleId);
 			return userRole;
 		}).forEach(sysUserRoleMapper::insert);
-		return Boolean.TRUE;
+		return sysUser.getUserId();
 	}
 
 	/**
@@ -398,7 +398,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 	 */
 	@Override
 	@Transactional(rollbackFor = Exception.class)
-	public R<Boolean> registerUser(UserDTO userDto) {
+	public R registerUser(UserDTO userDto) {
 		// 判断用户名是否存在
 		SysUser sysUser = this.getOne(Wrappers.<SysUser>lambdaQuery().eq(SysUser::getUsername, userDto.getUsername()));
 		if (sysUser != null) {

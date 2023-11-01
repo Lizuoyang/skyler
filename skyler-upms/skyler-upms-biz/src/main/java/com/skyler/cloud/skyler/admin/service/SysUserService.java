@@ -86,7 +86,7 @@ public interface SysUserService extends IService<SysUser> {
 	 * @param userDto DTO 对象
 	 * @return success/fail
 	 */
-	Boolean saveUser(UserDTO userDto);
+	Long saveUser(UserDTO userDto);
 
 	/**
 	 * 查询全部的用户

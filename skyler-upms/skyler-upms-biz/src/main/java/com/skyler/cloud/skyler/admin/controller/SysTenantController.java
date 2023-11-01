@@ -7,6 +7,8 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.pig4cloud.plugin.excel.annotation.ResponseExcel;
+import com.skyler.cloud.skyler.admin.api.dto.tenant.TenantCreateDTO;
+import com.skyler.cloud.skyler.admin.api.dto.tenant.TenantUpdateDTO;
 import com.skyler.cloud.skyler.admin.api.entity.SysTenantEntity;
 import com.skyler.cloud.skyler.admin.service.SysTenantService;
 import com.skyler.cloud.skyler.common.core.util.R;
@@ -27,6 +29,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Objects;
 
@@ -76,28 +79,27 @@ public class SysTenantController {
 
     /**
      * 新增租户表
-     * @param sysTenant 租户表
      * @return R
      */
     @Operation(summary = "新增租户表" , description = "新增租户表" )
     @SysLog("新增租户表" )
     @PostMapping
     @PreAuthorize("@pms.hasPermission('admin_tenant_add')" )
-    public R save(@RequestBody SysTenantEntity sysTenant) {
-        return R.ok(sysTenantService.save(sysTenant));
+    public R save(@Valid @RequestBody TenantCreateDTO tenantDTO) {
+        return R.ok(sysTenantService.createTenant(tenantDTO));
     }
 
     /**
      * 修改租户表
-     * @param sysTenant 租户表
+     * @param tenantUpdateDTO 租户表
      * @return R
      */
     @Operation(summary = "修改租户表" , description = "修改租户表" )
     @SysLog("修改租户表" )
     @PutMapping
     @PreAuthorize("@pms.hasPermission('admin_tenant_edit')" )
-    public R updateById(@RequestBody SysTenantEntity sysTenant) {
-        return R.ok(sysTenantService.updateById(sysTenant));
+    public R updateById(@Valid @RequestBody TenantUpdateDTO tenantUpdateDTO) {
+        return R.ok(sysTenantService.updateTenant(tenantUpdateDTO));
     }
 
     /**

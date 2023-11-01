@@ -535,6 +535,7 @@ CREATE TABLE `sys_role` (
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `del_flag` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '0' COMMENT '删除标记，0未删除，1已删除',
+  `tenant_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '租户编号',
   PRIMARY KEY (`role_id`) USING BTREE,
   KEY `role_idx1_role_code` (`role_code`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='系统角色表';
@@ -743,6 +744,8 @@ CREATE TABLE `sys_tenant`  (
   `del_flag` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '0' COMMENT '删除标记，0未删除，1已删除',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 151 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '租户表';
+
+INSERT INTO `sys_tenant` VALUES (1, '系统租户', 1, 'admin', '17752846201', 0, '', 1, '2024-11-01 00:00:00', 200, 'admin', 'admin', '2023-11-01 11:44:01', '2023-11-01 11:44:01', '0');
 
 
 -- ----------------------------

@@ -19,6 +19,10 @@ import java.time.LocalDateTime;
 @Schema(description = "租户表")
 public class SysTenantEntity extends Model<SysTenantEntity> {
 
+	/**
+	 * 套餐编号 - 系统
+	 */
+	public static final Long PACKAGE_ID_SYSTEM = 0L;
 
 	/**
 	* 租户编号

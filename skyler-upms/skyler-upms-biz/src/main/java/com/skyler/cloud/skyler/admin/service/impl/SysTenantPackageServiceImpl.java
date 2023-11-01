@@ -3,7 +3,7 @@ package com.skyler.cloud.skyler.admin.service.impl;
 import cn.hutool.core.util.ObjUtil;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.skyler.cloud.skyler.admin.api.convert.tenant.TenantPackageConvert;
-import com.skyler.cloud.skyler.admin.api.dto.tenant.TenantPackageDTO;
+import com.skyler.cloud.skyler.admin.api.dto.tenant.TenantPackageCreateDTO;
 import com.skyler.cloud.skyler.admin.api.entity.SysTenantPackageEntity;
 import com.skyler.cloud.skyler.admin.mapper.SysTenantPackageMapper;
 import com.skyler.cloud.skyler.admin.service.SysTenantPackageService;
@@ -24,7 +24,7 @@ import org.springframework.stereotype.Service;
 public class SysTenantPackageServiceImpl extends ServiceImpl<SysTenantPackageMapper, SysTenantPackageEntity> implements SysTenantPackageService {
 
 	@Override
-	public boolean saveTenantMenu(TenantPackageDTO tenantPackageDTO) {
+	public boolean saveTenantMenu(TenantPackageCreateDTO tenantPackageDTO) {
 		SysTenantPackageEntity saveEntity = TenantPackageConvert.INSTANCE.convert(tenantPackageDTO);
 		return this.save(saveEntity);
 	}

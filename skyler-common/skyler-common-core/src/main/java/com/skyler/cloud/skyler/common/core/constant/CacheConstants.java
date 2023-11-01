@@ -60,6 +60,11 @@ public interface CacheConstants {
 	String ROLE_DETAILS = "role_details";
 
 	/**
+	 * 角色信息缓存
+	 */
+	String ROLE = "role";
+
+	/**
 	 * oauth 客户端信息
 	 */
 	String CLIENT_DETAILS_KEY = "client:details";

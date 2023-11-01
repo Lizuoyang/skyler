@@ -7,7 +7,9 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.pig4cloud.plugin.excel.annotation.ResponseExcel;
-import com.skyler.cloud.skyler.admin.api.dto.tenant.TenantPackageDTO;
+import com.skyler.cloud.skyler.admin.api.convert.tenant.TenantPackageConvert;
+import com.skyler.cloud.skyler.admin.api.dto.tenant.TenantPackageCreateDTO;
+import com.skyler.cloud.skyler.admin.api.dto.tenant.TenantPackageUpdateDTO;
 import com.skyler.cloud.skyler.admin.api.entity.SysTenantPackageEntity;
 import com.skyler.cloud.skyler.admin.service.SysTenantPackageService;
 import com.skyler.cloud.skyler.common.core.util.R;
@@ -28,6 +30,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Objects;
 
@@ -84,21 +87,22 @@ public class SysTenantPackageController {
     @SysLog("新增租户套餐表" )
     @PostMapping
     @PreAuthorize("@pms.hasPermission('admin_tenantPackge_add')" )
-    public R save(@RequestBody TenantPackageDTO tenantPackageDTO) {
+    public R save(@Valid @RequestBody TenantPackageCreateDTO tenantPackageDTO) {
         return R.ok(sysTenantPackageService.saveTenantMenu(tenantPackageDTO));
     }
 
     /**
      * 修改租户套餐表
-     * @param sysTenantPackage 租户套餐表
+     * @param updateDTO
      * @return R
      */
     @Operation(summary = "修改租户套餐表" , description = "修改租户套餐表" )
     @SysLog("修改租户套餐表" )
     @PutMapping
     @PreAuthorize("@pms.hasPermission('admin_tenantPackge_edit')" )
-    public R updateById(@RequestBody SysTenantPackageEntity sysTenantPackage) {
-        return R.ok(sysTenantPackageService.updateById(sysTenantPackage));
+    public R updateById(@Valid @RequestBody TenantPackageUpdateDTO updateDTO) {
+		SysTenantPackageEntity updateEntity = TenantPackageConvert.INSTANCE.convert(updateDTO);
+		return R.ok(sysTenantPackageService.updateById(updateEntity));
     }
 
     /**

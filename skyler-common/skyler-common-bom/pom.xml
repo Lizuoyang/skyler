@@ -76,6 +76,11 @@
 				<artifactId>skyler-common-datapermission</artifactId>
 				<version>${skyler.common.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>com.skyler.cloud</groupId>
+				<artifactId>skyler-common-tenant</artifactId>
+				<version>${skyler.common.version}</version>
+			</dependency>
             <dependency>
                 <groupId>com.skyler.cloud</groupId>
                 <artifactId>skyler-common-security</artifactId>
