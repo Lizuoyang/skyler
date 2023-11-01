@@ -42,5 +42,6 @@
         <module>skyler-common-feign</module>
         <module>skyler-common-swagger</module>
         <module>skyler-common-xss</module>
+        <module>skyler-common-datapermission</module>
     </modules>
 </project>

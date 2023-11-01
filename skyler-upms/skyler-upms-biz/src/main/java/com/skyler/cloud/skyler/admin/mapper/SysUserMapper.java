@@ -25,8 +25,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.skyler.cloud.skyler.admin.api.dto.UserDTO;
 import com.skyler.cloud.skyler.admin.api.entity.SysUser;
 import com.skyler.cloud.skyler.admin.api.vo.UserVO;
-import com.skyler.cloud.skyler.common.mybatis.annotation.DataColumn;
-import com.skyler.cloud.skyler.common.mybatis.annotation.DataPermission;
+import com.skyler.cloud.skyler.common.datapermission.annotation.DataColumn;
+import com.skyler.cloud.skyler.common.datapermission.annotation.DataPermission;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

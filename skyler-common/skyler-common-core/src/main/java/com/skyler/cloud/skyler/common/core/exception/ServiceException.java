@@ -17,13 +17,11 @@
 package com.skyler.cloud.skyler.common.core.exception;
 
 import com.skyler.cloud.skyler.common.core.exception.enums.ErrorCodeEnum;
-import lombok.NoArgsConstructor;
 
 /**
  * @author lengleng
  * @date 2018年06月22日16:22:03 403
  */
-@NoArgsConstructor
 public class ServiceException extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;

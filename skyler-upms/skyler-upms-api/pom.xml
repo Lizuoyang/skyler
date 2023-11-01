@@ -37,11 +37,11 @@
             <artifactId>spring-cloud-openfeign-core</artifactId>
             <optional>true</optional>
         </dependency>
-        <!--mybatis 依赖-->
-        <dependency>
-            <groupId>com.skyler.cloud</groupId>
-            <artifactId>skyler-common-mybatis</artifactId>
-        </dependency>
+		<!-- 数据权限依赖 -->
+		<dependency>
+			<groupId>com.skyler.cloud</groupId>
+			<artifactId>skyler-common-datapermission</artifactId>
+		</dependency>
         <!-- excel 导入导出 https://github.com/skyler-mesh/excel-spring-boot-starter -->
         <dependency>
             <groupId>com.pig4cloud.excel</groupId>

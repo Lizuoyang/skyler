@@ -1,10 +1,10 @@
-package com.skyler.cloud.skyler.common.mybatis.plugins;
+package com.skyler.cloud.skyler.common.datapermission.plugins;
 
 import com.baomidou.mybatisplus.core.plugins.InterceptorIgnoreHelper;
 import com.baomidou.mybatisplus.core.toolkit.PluginUtils;
 import com.baomidou.mybatisplus.extension.parser.JsqlParserSupport;
 import com.baomidou.mybatisplus.extension.plugins.inner.InnerInterceptor;
-import com.skyler.cloud.skyler.common.mybatis.handler.SkylerDataPermissionHandler;
+import com.skyler.cloud.skyler.common.datapermission.handler.SkylerDataPermissionHandler;
 import net.sf.jsqlparser.expression.Expression;
 import net.sf.jsqlparser.statement.delete.Delete;
 import net.sf.jsqlparser.statement.select.PlainSelect;

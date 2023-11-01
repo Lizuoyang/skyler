@@ -1,4 +1,4 @@
-package com.skyler.cloud.skyler.common.mybatis.enums;
+package com.skyler.cloud.skyler.common.datapermission.enums;
 
 import cn.hutool.core.util.StrUtil;
 import lombok.AllArgsConstructor;

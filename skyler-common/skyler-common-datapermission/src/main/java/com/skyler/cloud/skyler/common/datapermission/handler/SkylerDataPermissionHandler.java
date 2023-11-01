@@ -1,4 +1,4 @@
-package com.skyler.cloud.skyler.common.mybatis.handler;
+package com.skyler.cloud.skyler.common.datapermission.handler;
 
 import cn.hutool.core.annotation.AnnotationUtil;
 import cn.hutool.core.collection.CollUtil;
@@ -13,10 +13,10 @@ import com.skyler.cloud.skyler.common.core.exception.utils.ServiceExceptionUtil;
 import com.skyler.cloud.skyler.common.core.util.SecurityUtils;
 import com.skyler.cloud.skyler.common.core.util.SpringUtils;
 import com.skyler.cloud.skyler.common.core.util.StreamUtils;
-import com.skyler.cloud.skyler.common.mybatis.annotation.DataColumn;
-import com.skyler.cloud.skyler.common.mybatis.annotation.DataPermission;
-import com.skyler.cloud.skyler.common.mybatis.enums.DataScopeType;
-import com.skyler.cloud.skyler.common.mybatis.helper.DataPermissionHelper;
+import com.skyler.cloud.skyler.common.datapermission.annotation.DataColumn;
+import com.skyler.cloud.skyler.common.datapermission.annotation.DataPermission;
+import com.skyler.cloud.skyler.common.datapermission.enums.DataScopeType;
+import com.skyler.cloud.skyler.common.datapermission.helper.DataPermissionHelper;
 import lombok.extern.slf4j.Slf4j;
 import net.sf.jsqlparser.JSQLParserException;
 import net.sf.jsqlparser.expression.Expression;

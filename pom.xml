@@ -105,7 +105,7 @@
         <module>skyler-upms</module>
         <module>skyler-common</module>
         <module>skyler-visual</module>
-	</modules>
+    </modules>
 
     <dependencyManagement>
         <dependencies>

@@ -1,6 +1,10 @@
-package com.skyler.cloud.skyler.common.mybatis.annotation;
+package com.skyler.cloud.skyler.common.datapermission.annotation;
 
-import java.lang.annotation.*;
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
  * 数据权限

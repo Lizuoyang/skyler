@@ -19,7 +19,6 @@ package com.skyler.cloud.skyler.common.mybatis;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.skyler.cloud.skyler.common.mybatis.config.MybatisPlusMetaObjectHandler;
-import com.skyler.cloud.skyler.common.mybatis.plugins.SkylerDataPermissionInterceptor;
 import com.skyler.cloud.skyler.common.mybatis.plugins.SkylerPaginationInnerInterceptor;
 import com.skyler.cloud.skyler.common.mybatis.resolver.SqlFilterArgumentResolver;
 import org.springframework.context.annotation.Bean;
@@ -54,7 +53,6 @@ public class MybatisAutoConfiguration implements WebMvcConfigurer {
 	public MybatisPlusInterceptor mybatisPlusInterceptor() {
 		MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
 		interceptor.addInnerInterceptor(new SkylerPaginationInnerInterceptor());
-		interceptor.addInnerInterceptor(new SkylerDataPermissionInterceptor());
 		return interceptor;
 	}
 

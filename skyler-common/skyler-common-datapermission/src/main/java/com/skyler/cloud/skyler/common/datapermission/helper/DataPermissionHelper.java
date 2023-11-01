@@ -1,4 +1,4 @@
-package com.skyler.cloud.skyler.common.mybatis.helper;
+package com.skyler.cloud.skyler.common.datapermission.helper;
 
 import cn.hutool.core.util.ObjUtil;
 import cn.hutool.core.util.ObjectUtil;
