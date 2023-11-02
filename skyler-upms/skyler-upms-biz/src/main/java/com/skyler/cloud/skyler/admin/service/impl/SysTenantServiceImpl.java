@@ -100,6 +100,7 @@ public class SysTenantServiceImpl extends ServiceImpl<SysTenantMapper, SysTenant
 		TenantUtils.execute(tenantId, () -> {
 			// 获取所有的角色
 			List<SysRole> roles = roleService.list();
+			//TODO 等配置好租户拦截器后再测试
 			roles.forEach(role -> Assert.isTrue(ObjUtil.equal(tenantId, role.getTenantId()), "角色({}/{}) 租户不匹配", role.getRoleId(), role.getTenantId(), tenantId));
 			// 重新分配每个角色的权限
 			roles.forEach(role -> {
@@ -125,6 +126,7 @@ public class SysTenantServiceImpl extends ServiceImpl<SysTenantMapper, SysTenant
 		roleCreateDTO.setRoleName(RoleCodeEnum.TENANT_ADMIN.getName());
 		roleCreateDTO.setRoleCode(RoleCodeEnum.TENANT_ADMIN.getCode());
 		roleCreateDTO.setRoleDesc("系统自动生成");
+		roleCreateDTO.setTenantId(tenantPackage.getId());
 		Long roleId = roleService.createRole(roleCreateDTO);
 		// 分配权限
 		roleMenuService.saveRoleMenus(roleId, tenantPackage.getMenuIds());

@@ -7,7 +7,6 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.pig4cloud.plugin.excel.annotation.ResponseExcel;
-import com.skyler.cloud.skyler.admin.api.convert.tenant.TenantPackageConvert;
 import com.skyler.cloud.skyler.admin.api.dto.tenant.TenantPackageCreateDTO;
 import com.skyler.cloud.skyler.admin.api.dto.tenant.TenantPackageUpdateDTO;
 import com.skyler.cloud.skyler.admin.api.entity.SysTenantPackageEntity;
@@ -88,7 +87,7 @@ public class SysTenantPackageController {
     @PostMapping
     @PreAuthorize("@pms.hasPermission('admin_tenantPackge_add')" )
     public R save(@Valid @RequestBody TenantPackageCreateDTO tenantPackageDTO) {
-        return R.ok(sysTenantPackageService.saveTenantMenu(tenantPackageDTO));
+        return R.ok(sysTenantPackageService.saveTenantPackage(tenantPackageDTO));
     }
 
     /**
@@ -101,8 +100,8 @@ public class SysTenantPackageController {
     @PutMapping
     @PreAuthorize("@pms.hasPermission('admin_tenantPackge_edit')" )
     public R updateById(@Valid @RequestBody TenantPackageUpdateDTO updateDTO) {
-		SysTenantPackageEntity updateEntity = TenantPackageConvert.INSTANCE.convert(updateDTO);
-		return R.ok(sysTenantPackageService.updateById(updateEntity));
+		sysTenantPackageService.updateTeantPackage(updateDTO);
+		return R.ok();
     }
 
     /**

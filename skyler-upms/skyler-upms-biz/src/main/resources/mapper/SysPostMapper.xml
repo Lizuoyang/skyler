@@ -31,6 +31,7 @@
 		<result property="createTime" column="create_time"/>
 		<result property="updateTime" column="update_time"/>
 		<result property="remark" column="remark"/>
+		<result column="tenant_id" property="tenantId"/>
 	</resultMap>
 
 	<!-- 通过用户ID，查询岗位信息-->

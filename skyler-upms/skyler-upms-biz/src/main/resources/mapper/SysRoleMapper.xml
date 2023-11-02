@@ -30,6 +30,7 @@
 		<result column="create_time" property="createTime"/>
 		<result column="update_time" property="updateTime"/>
 		<result column="del_flag" property="delFlag"/>
+		<result column="tenant_id" property="tenantId"/>
 	</resultMap>
 
 	<!-- 通过用户ID，查询角色信息-->

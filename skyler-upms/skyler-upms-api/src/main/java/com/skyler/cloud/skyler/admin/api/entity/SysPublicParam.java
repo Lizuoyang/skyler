@@ -17,13 +17,12 @@
 
 package com.skyler.cloud.skyler.admin.api.entity;
 
-import com.baomidou.mybatisplus.annotation.*;
-import com.baomidou.mybatisplus.extension.activerecord.Model;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.skyler.cloud.skyler.common.mybatis.base.TenantEntity;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-
-import java.time.LocalDateTime;
 
 /**
  * 公共参数配置
@@ -34,7 +33,7 @@ import java.time.LocalDateTime;
 @Data
 @Schema(description = "公共参数")
 @EqualsAndHashCode(callSuper = true)
-public class SysPublicParam extends Model<SysPublicParam> {
+public class SysPublicParam extends TenantEntity {
 
 	private static final long serialVersionUID = 1L;
 
@@ -86,41 +85,5 @@ public class SysPublicParam extends Model<SysPublicParam> {
 	 */
 	@Schema(description = "类型[1-检索；2-原文...]", example = "1")
 	private String publicType;
-
-	/**
-	 * 创建人
-	 */
-	@TableField(fill = FieldFill.INSERT)
-	@Schema(description = "创建人")
-	private String createBy;
-
-	/**
-	 * 修改人
-	 */
-	@TableField(fill = FieldFill.UPDATE)
-	@Schema(description = "修改人")
-	private String updateBy;
-
-	/**
-	 * 删除标记
-	 */
-	@TableLogic
-	@TableField(fill = FieldFill.INSERT)
-	@Schema(description = "删除标记,1:已删除,0:正常")
-	private String delFlag;
-
-	/**
-	 * 创建时间
-	 */
-	@TableField(fill = FieldFill.INSERT)
-	@Schema(description = "创建时间")
-	private LocalDateTime createTime;
-
-	/**
-	 * 更新时间
-	 */
-	@TableField(fill = FieldFill.UPDATE)
-	@Schema(description = "更新时间")
-	private LocalDateTime updateTime;
 
 }

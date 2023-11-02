@@ -22,6 +22,7 @@ CREATE TABLE `sys_dept` (
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   `del_flag` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '0' COMMENT '删除标志',
   `parent_id` bigint DEFAULT NULL COMMENT '父级部门ID',
+  `tenant_id` bigint NOT NULL DEFAULT 0 COMMENT '租户编号',
   PRIMARY KEY (`dept_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='部门管理';
 
@@ -29,20 +30,20 @@ CREATE TABLE `sys_dept` (
 -- Records of sys_dept
 -- ----------------------------
 BEGIN;
-INSERT INTO `sys_dept` VALUES (1, '总裁办', 1, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:07:49', '0', 0);
-INSERT INTO `sys_dept` VALUES (2, '技术部', 2, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 1);
-INSERT INTO `sys_dept` VALUES (3, '市场部', 3, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 1);
-INSERT INTO `sys_dept` VALUES (4, '销售部', 4, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 1);
-INSERT INTO `sys_dept` VALUES (5, '财务部', 5, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 1);
-INSERT INTO `sys_dept` VALUES (6, '人事行政部', 6, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:53:36', '1', 1);
-INSERT INTO `sys_dept` VALUES (7, '研发部', 7, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 2);
-INSERT INTO `sys_dept` VALUES (8, 'UI设计部', 11, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 7);
-INSERT INTO `sys_dept` VALUES (9, '产品部', 12, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 2);
-INSERT INTO `sys_dept` VALUES (10, '渠道部', 13, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 3);
-INSERT INTO `sys_dept` VALUES (11, '推广部', 14, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 3);
-INSERT INTO `sys_dept` VALUES (12, '客服部', 15, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 4);
-INSERT INTO `sys_dept` VALUES (13, '财务会计部', 16, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 5);
-INSERT INTO `sys_dept` VALUES (14, '审计风控部', 17, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 14:06:57', '0', 5);
+INSERT INTO `sys_dept` VALUES (1, '总裁办', 1, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:07:49', '0', 0, 0);
+INSERT INTO `sys_dept` VALUES (2, '技术部', 2, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 1, 0);
+INSERT INTO `sys_dept` VALUES (3, '市场部', 3, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 1, 0);
+INSERT INTO `sys_dept` VALUES (4, '销售部', 4, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 1, 0);
+INSERT INTO `sys_dept` VALUES (5, '财务部', 5, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 1, 0);
+INSERT INTO `sys_dept` VALUES (6, '人事行政部', 6, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:53:36', '1', 1, 0);
+INSERT INTO `sys_dept` VALUES (7, '研发部', 7, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 2, 0);
+INSERT INTO `sys_dept` VALUES (8, 'UI设计部', 11, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 7, 0);
+INSERT INTO `sys_dept` VALUES (9, '产品部', 12, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 2, 0);
+INSERT INTO `sys_dept` VALUES (10, '渠道部', 13, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 3, 0);
+INSERT INTO `sys_dept` VALUES (11, '推广部', 14, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 3, 0);
+INSERT INTO `sys_dept` VALUES (12, '客服部', 15, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 4, 0);
+INSERT INTO `sys_dept` VALUES (13, '财务会计部', 16, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 5, 0);
+INSERT INTO `sys_dept` VALUES (14, '审计风控部', 17, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 14:06:57', '0', 5, 0);
 COMMIT;
 
 -- ----------------------------
@@ -228,6 +229,7 @@ CREATE TABLE `sys_file` (
   `create_time` datetime DEFAULT NULL COMMENT '上传时间',
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `del_flag` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '0' COMMENT '删除标志',
+  `tenant_id` bigint NOT NULL DEFAULT 0 COMMENT '租户编号',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='文件管理表';
 
@@ -258,6 +260,7 @@ CREATE TABLE `sys_log` (
   `time` bigint DEFAULT NULL COMMENT '执行时间',
   `del_flag` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '0' COMMENT '删除标志',
   `exception` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '异常信息',
+  `tenant_id` bigint NOT NULL DEFAULT 0 COMMENT '租户编号',
   PRIMARY KEY (`id`) USING BTREE,
   KEY `sys_log_request_uri` (`request_uri`) USING BTREE,
   KEY `sys_log_type` (`log_type`) USING BTREE,
@@ -474,6 +477,7 @@ CREATE TABLE `sys_post` (
   `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '创建人',
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '更新人',
+  `tenant_id` bigint NOT NULL DEFAULT 0 COMMENT '租户编号',
   PRIMARY KEY (`post_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='岗位信息表';
 
@@ -481,7 +485,7 @@ CREATE TABLE `sys_post` (
 -- Records of sys_post
 -- ----------------------------
 BEGIN;
-INSERT INTO `sys_post` VALUES (1, 'CTO', 'CTO', 0, 'CTOOO', '0', '2022-03-26 13:48:17', '', '2023-03-08 16:03:35', 'admin');
+INSERT INTO `sys_post` VALUES (1, 'CTO', 'CTO', 0, 'CTOOO', '0', '2022-03-26 13:48:17', '', '2023-03-08 16:03:35', 'admin', 0);
 COMMIT;
 
 -- ----------------------------
@@ -544,8 +548,8 @@ CREATE TABLE `sys_role` (
 -- Records of sys_role
 -- ----------------------------
 BEGIN;
-INSERT INTO `sys_role` VALUES (1, '管理员', 'ROLE_ADMIN', '管理员', '1', '', 'admin', '2017-10-29 15:45:51', '2023-07-07 14:55:07', '0');
-INSERT INTO `sys_role` VALUES (2, '普通用户', 'GENERAL_USER', '普通用户', '1', '', 'admin', '2022-03-31 17:03:15', '2023-04-03 02:28:51', '0');
+INSERT INTO `sys_role` VALUES (1, '管理员', 'ROLE_ADMIN', '管理员', '1', '', 'admin', '2017-10-29 15:45:51', '2023-07-07 14:55:07', '0', 0);
+INSERT INTO `sys_role` VALUES (2, '普通用户', 'GENERAL_USER', '普通用户', '1', '', 'admin', '2022-03-31 17:03:15', '2023-04-03 02:28:51', '0', 0);
 COMMIT;
 
 -- ----------------------------
@@ -555,6 +559,7 @@ DROP TABLE IF EXISTS `sys_role_menu`;
 CREATE TABLE `sys_role_menu` (
   `role_id` bigint NOT NULL COMMENT '角色ID',
   `menu_id` bigint NOT NULL COMMENT '菜单ID',
+  `tenant_id` bigint NOT NULL DEFAULT 0 COMMENT '租户编号',
   PRIMARY KEY (`role_id`,`menu_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='角色菜单表';
 
@@ -562,88 +567,88 @@ CREATE TABLE `sys_role_menu` (
 -- Records of sys_role_menu
 -- ----------------------------
 BEGIN;
-INSERT INTO `sys_role_menu` VALUES (1, 1000);
-INSERT INTO `sys_role_menu` VALUES (1, 1100);
-INSERT INTO `sys_role_menu` VALUES (1, 1101);
-INSERT INTO `sys_role_menu` VALUES (1, 1102);
-INSERT INTO `sys_role_menu` VALUES (1, 1103);
-INSERT INTO `sys_role_menu` VALUES (1, 1104);
-INSERT INTO `sys_role_menu` VALUES (1, 1200);
-INSERT INTO `sys_role_menu` VALUES (1, 1201);
-INSERT INTO `sys_role_menu` VALUES (1, 1202);
-INSERT INTO `sys_role_menu` VALUES (1, 1203);
-INSERT INTO `sys_role_menu` VALUES (1, 1300);
-INSERT INTO `sys_role_menu` VALUES (1, 1301);
-INSERT INTO `sys_role_menu` VALUES (1, 1302);
-INSERT INTO `sys_role_menu` VALUES (1, 1303);
-INSERT INTO `sys_role_menu` VALUES (1, 1304);
-INSERT INTO `sys_role_menu` VALUES (1, 1305);
-INSERT INTO `sys_role_menu` VALUES (1, 1400);
-INSERT INTO `sys_role_menu` VALUES (1, 1401);
-INSERT INTO `sys_role_menu` VALUES (1, 1402);
-INSERT INTO `sys_role_menu` VALUES (1, 1403);
-INSERT INTO `sys_role_menu` VALUES (1, 1600);
-INSERT INTO `sys_role_menu` VALUES (1, 1601);
-INSERT INTO `sys_role_menu` VALUES (1, 1602);
-INSERT INTO `sys_role_menu` VALUES (1, 1603);
-INSERT INTO `sys_role_menu` VALUES (1, 1604);
-INSERT INTO `sys_role_menu` VALUES (1, 1605);
-INSERT INTO `sys_role_menu` VALUES (1, 2000);
-INSERT INTO `sys_role_menu` VALUES (1, 2001);
-INSERT INTO `sys_role_menu` VALUES (1, 2100);
-INSERT INTO `sys_role_menu` VALUES (1, 2101);
-INSERT INTO `sys_role_menu` VALUES (1, 2102);
-INSERT INTO `sys_role_menu` VALUES (1, 2200);
-INSERT INTO `sys_role_menu` VALUES (1, 2201);
-INSERT INTO `sys_role_menu` VALUES (1, 2202);
-INSERT INTO `sys_role_menu` VALUES (1, 2203);
-INSERT INTO `sys_role_menu` VALUES (1, 2210);
-INSERT INTO `sys_role_menu` VALUES (1, 2211);
-INSERT INTO `sys_role_menu` VALUES (1, 2212);
-INSERT INTO `sys_role_menu` VALUES (1, 2213);
-INSERT INTO `sys_role_menu` VALUES (1, 2300);
-INSERT INTO `sys_role_menu` VALUES (1, 2400);
-INSERT INTO `sys_role_menu` VALUES (1, 2401);
-INSERT INTO `sys_role_menu` VALUES (1, 2402);
-INSERT INTO `sys_role_menu` VALUES (1, 2403);
-INSERT INTO `sys_role_menu` VALUES (1, 2600);
-INSERT INTO `sys_role_menu` VALUES (1, 2601);
-INSERT INTO `sys_role_menu` VALUES (1, 2800);
-INSERT INTO `sys_role_menu` VALUES (1, 2810);
-INSERT INTO `sys_role_menu` VALUES (1, 2820);
-INSERT INTO `sys_role_menu` VALUES (1, 2830);
-INSERT INTO `sys_role_menu` VALUES (1, 2840);
-INSERT INTO `sys_role_menu` VALUES (1, 2850);
-INSERT INTO `sys_role_menu` VALUES (1, 2860);
-INSERT INTO `sys_role_menu` VALUES (1, 2870);
-INSERT INTO `sys_role_menu` VALUES (1, 2871);
-INSERT INTO `sys_role_menu` VALUES (1, 2906);
-INSERT INTO `sys_role_menu` VALUES (1, 2907);
-INSERT INTO `sys_role_menu` VALUES (1, 4000);
-INSERT INTO `sys_role_menu` VALUES (1, 4001);
-INSERT INTO `sys_role_menu` VALUES (1, 4002);
-INSERT INTO `sys_role_menu` VALUES (1, 9000);
-INSERT INTO `sys_role_menu` VALUES (1, 9005);
-INSERT INTO `sys_role_menu` VALUES (1, 9006);
-INSERT INTO `sys_role_menu` VALUES (1, 9007);
-INSERT INTO `sys_role_menu` VALUES (1, 9050);
-INSERT INTO `sys_role_menu` VALUES (1, 9051);
-INSERT INTO `sys_role_menu` VALUES (1, 9052);
-INSERT INTO `sys_role_menu` VALUES (1, 9053);
-INSERT INTO `sys_role_menu` VALUES (1, 9054);
-INSERT INTO `sys_role_menu` VALUES (1, 9055);
-INSERT INTO `sys_role_menu` VALUES (1, 9056);
-INSERT INTO `sys_role_menu` VALUES (1, 9057);
-INSERT INTO `sys_role_menu` VALUES (1, 9059);
-INSERT INTO `sys_role_menu` VALUES (1, 9060);
-INSERT INTO `sys_role_menu` VALUES (1, 9061);
-INSERT INTO `sys_role_menu` VALUES (1, 9062);
-INSERT INTO `sys_role_menu` VALUES (1, 9063);
-INSERT INTO `sys_role_menu` VALUES (1, 9064);
-INSERT INTO `sys_role_menu` VALUES (1, 9065);
-INSERT INTO `sys_role_menu` VALUES (2, 4000);
-INSERT INTO `sys_role_menu` VALUES (2, 4001);
-INSERT INTO `sys_role_menu` VALUES (2, 4002);
+INSERT INTO `sys_role_menu` VALUES (1, 1000,0);
+INSERT INTO `sys_role_menu` VALUES (1, 1100,0);
+INSERT INTO `sys_role_menu` VALUES (1, 1101,0);
+INSERT INTO `sys_role_menu` VALUES (1, 1102,0);
+INSERT INTO `sys_role_menu` VALUES (1, 1103,0);
+INSERT INTO `sys_role_menu` VALUES (1, 1104,0);
+INSERT INTO `sys_role_menu` VALUES (1, 1200,0);
+INSERT INTO `sys_role_menu` VALUES (1, 1201,0);
+INSERT INTO `sys_role_menu` VALUES (1, 1202,0);
+INSERT INTO `sys_role_menu` VALUES (1, 1203,0);
+INSERT INTO `sys_role_menu` VALUES (1, 1300,0);
+INSERT INTO `sys_role_menu` VALUES (1, 1301,0);
+INSERT INTO `sys_role_menu` VALUES (1, 1302,0);
+INSERT INTO `sys_role_menu` VALUES (1, 1303,0);
+INSERT INTO `sys_role_menu` VALUES (1, 1304,0);
+INSERT INTO `sys_role_menu` VALUES (1, 1305,0);
+INSERT INTO `sys_role_menu` VALUES (1, 1400,0);
+INSERT INTO `sys_role_menu` VALUES (1, 1401,0);
+INSERT INTO `sys_role_menu` VALUES (1, 1402,0);
+INSERT INTO `sys_role_menu` VALUES (1, 1403,0);
+INSERT INTO `sys_role_menu` VALUES (1, 1600,0);
+INSERT INTO `sys_role_menu` VALUES (1, 1601,0);
+INSERT INTO `sys_role_menu` VALUES (1, 1602,0);
+INSERT INTO `sys_role_menu` VALUES (1, 1603,0);
+INSERT INTO `sys_role_menu` VALUES (1, 1604,0);
+INSERT INTO `sys_role_menu` VALUES (1, 1605,0);
+INSERT INTO `sys_role_menu` VALUES (1, 2000,0);
+INSERT INTO `sys_role_menu` VALUES (1, 2001,0);
+INSERT INTO `sys_role_menu` VALUES (1, 2100,0);
+INSERT INTO `sys_role_menu` VALUES (1, 2101,0);
+INSERT INTO `sys_role_menu` VALUES (1, 2102,0);
+INSERT INTO `sys_role_menu` VALUES (1, 2200,0);
+INSERT INTO `sys_role_menu` VALUES (1, 2201,0);
+INSERT INTO `sys_role_menu` VALUES (1, 2202,0);
+INSERT INTO `sys_role_menu` VALUES (1, 2203,0);
+INSERT INTO `sys_role_menu` VALUES (1, 2210,0);
+INSERT INTO `sys_role_menu` VALUES (1, 2211,0);
+INSERT INTO `sys_role_menu` VALUES (1, 2212,0);
+INSERT INTO `sys_role_menu` VALUES (1, 2213,0);
+INSERT INTO `sys_role_menu` VALUES (1, 2300,0);
+INSERT INTO `sys_role_menu` VALUES (1, 2400,0);
+INSERT INTO `sys_role_menu` VALUES (1, 2401,0);
+INSERT INTO `sys_role_menu` VALUES (1, 2402,0);
+INSERT INTO `sys_role_menu` VALUES (1, 2403,0);
+INSERT INTO `sys_role_menu` VALUES (1, 2600,0);
+INSERT INTO `sys_role_menu` VALUES (1, 2601,0);
+INSERT INTO `sys_role_menu` VALUES (1, 2800,0);
+INSERT INTO `sys_role_menu` VALUES (1, 2810,0);
+INSERT INTO `sys_role_menu` VALUES (1, 2820,0);
+INSERT INTO `sys_role_menu` VALUES (1, 2830,0);
+INSERT INTO `sys_role_menu` VALUES (1, 2840,0);
+INSERT INTO `sys_role_menu` VALUES (1, 2850,0);
+INSERT INTO `sys_role_menu` VALUES (1, 2860,0);
+INSERT INTO `sys_role_menu` VALUES (1, 2870,0);
+INSERT INTO `sys_role_menu` VALUES (1, 2871,0);
+INSERT INTO `sys_role_menu` VALUES (1, 2906,0);
+INSERT INTO `sys_role_menu` VALUES (1, 2907,0);
+INSERT INTO `sys_role_menu` VALUES (1, 4000,0);
+INSERT INTO `sys_role_menu` VALUES (1, 4001,0);
+INSERT INTO `sys_role_menu` VALUES (1, 4002,0);
+INSERT INTO `sys_role_menu` VALUES (1, 9000,0);
+INSERT INTO `sys_role_menu` VALUES (1, 9005,0);
+INSERT INTO `sys_role_menu` VALUES (1, 9006,0);
+INSERT INTO `sys_role_menu` VALUES (1, 9007,0);
+INSERT INTO `sys_role_menu` VALUES (1, 9050,0);
+INSERT INTO `sys_role_menu` VALUES (1, 9051,0);
+INSERT INTO `sys_role_menu` VALUES (1, 9052,0);
+INSERT INTO `sys_role_menu` VALUES (1, 9053,0);
+INSERT INTO `sys_role_menu` VALUES (1, 9054,0);
+INSERT INTO `sys_role_menu` VALUES (1, 9055,0);
+INSERT INTO `sys_role_menu` VALUES (1, 9056,0);
+INSERT INTO `sys_role_menu` VALUES (1, 9057,0);
+INSERT INTO `sys_role_menu` VALUES (1, 9059,0);
+INSERT INTO `sys_role_menu` VALUES (1, 9060,0);
+INSERT INTO `sys_role_menu` VALUES (1, 9061,0);
+INSERT INTO `sys_role_menu` VALUES (1, 9062,0);
+INSERT INTO `sys_role_menu` VALUES (1, 9063,0);
+INSERT INTO `sys_role_menu` VALUES (1, 9064,0);
+INSERT INTO `sys_role_menu` VALUES (1, 9065,0);
+INSERT INTO `sys_role_menu` VALUES (2, 4000,0);
+INSERT INTO `sys_role_menu` VALUES (2, 4001,0);
+INSERT INTO `sys_role_menu` VALUES (2, 4002,0);
 COMMIT;
 
 -- ----------------------------
@@ -672,6 +677,7 @@ CREATE TABLE `sys_user` (
   `qq_openid` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'QQ openId',
   `gitee_login` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '码云标识',
   `osc_id` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '开源中国标识',
+  `tenant_id` bigint NOT NULL DEFAULT 0 COMMENT '租户编号',
   PRIMARY KEY (`user_id`) USING BTREE,
   KEY `user_wx_openid` (`wx_openid`) USING BTREE,
   KEY `user_qq_openid` (`qq_openid`) USING BTREE,
@@ -682,7 +688,7 @@ CREATE TABLE `sys_user` (
 -- Records of sys_user
 -- ----------------------------
 BEGIN;
-INSERT INTO `sys_user` VALUES (1, 'admin', '$2a$10$c/Ae0pRjJtMZg3BnvVpO.eIK6WYWVbKTzqgdy3afR7w.vd.xi3Mgy', '', '17034642999', '/admin/sys-file/s3demo/7ff4ca6b7bf446f3a5a13ac016dc21af.png', '管理员', '管理员', 'skyler4cloud@qq.com', 4, ' ', 'admin', '2018-04-20 07:15:18', '2023-07-07 14:55:40', '0', '0', NULL, 'oBxPy5E-v82xWGsfzZVzkD3wEX64', NULL, 'log4j', NULL);
+INSERT INTO `sys_user` VALUES (1, 'admin', '$2a$10$c/Ae0pRjJtMZg3BnvVpO.eIK6WYWVbKTzqgdy3afR7w.vd.xi3Mgy', '', '17034642999', '/admin/sys-file/s3demo/7ff4ca6b7bf446f3a5a13ac016dc21af.png', '管理员', '管理员', 'skyler4cloud@qq.com', 4, ' ', 'admin', '2018-04-20 07:15:18', '2023-07-07 14:55:40', '0', '0', NULL, 'oBxPy5E-v82xWGsfzZVzkD3wEX64', NULL, 'log4j', NULL, 0);
 COMMIT;
 
 -- ----------------------------
@@ -692,6 +698,7 @@ DROP TABLE IF EXISTS `sys_user_post`;
 CREATE TABLE `sys_user_post` (
   `user_id` bigint NOT NULL COMMENT '用户ID',
   `post_id` bigint NOT NULL COMMENT '岗位ID',
+  `tenant_id` bigint NOT NULL DEFAULT 0 COMMENT '租户编号',
   PRIMARY KEY (`user_id`,`post_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC COMMENT='用户与岗位关联表';
 
@@ -699,7 +706,7 @@ CREATE TABLE `sys_user_post` (
 -- Records of sys_user_post
 -- ----------------------------
 BEGIN;
-INSERT INTO `sys_user_post` VALUES (1, 1);
+INSERT INTO `sys_user_post` VALUES (1, 1, 0);
 COMMIT;
 
 -- ----------------------------
@@ -709,6 +716,7 @@ DROP TABLE IF EXISTS `sys_user_role`;
 CREATE TABLE `sys_user_role` (
   `user_id` bigint NOT NULL COMMENT '用户ID',
   `role_id` bigint NOT NULL COMMENT '角色ID',
+  `tenant_id` bigint NOT NULL DEFAULT 0 COMMENT '租户编号',
   PRIMARY KEY (`user_id`,`role_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用户角色表';
 
@@ -716,8 +724,8 @@ CREATE TABLE `sys_user_role` (
 -- Records of sys_user_role
 -- ----------------------------
 BEGIN;
-INSERT INTO `sys_user_role` VALUES (1, 1);
-INSERT INTO `sys_user_role` VALUES (1676492190299299842, 2);
+INSERT INTO `sys_user_role` VALUES (1, 1, 0);
+INSERT INTO `sys_user_role` VALUES (1676492190299299842, 2, 0);
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
@@ -745,7 +753,7 @@ CREATE TABLE `sys_tenant`  (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 151 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '租户表';
 
-INSERT INTO `sys_tenant` VALUES (1, '系统租户', 1, 'admin', '17752846201', 0, '', 1, '2024-11-01 00:00:00', 200, 'admin', 'admin', '2023-11-01 11:44:01', '2023-11-01 11:44:01', '0');
+INSERT INTO `sys_tenant` VALUES (1, '系统租户', 1, 'admin', '17752846201', 0, '', 0, '2024-11-01 00:00:00', 9999, 'admin', 'admin', '2023-11-01 11:44:01', '2023-11-01 11:44:01', '0');
 
 
 -- ----------------------------

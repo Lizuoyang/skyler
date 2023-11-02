@@ -34,6 +34,7 @@ skyler
 └── skyler-common -- 系统公共模块
      ├── skyler-common-bom -- 全局依赖管理控制
      ├── skyler-common-core -- 公共工具类核心包
+     ├── skyler-common-datapermission -- 数据权限
      ├── skyler-common-datasource -- 动态数据源包
      ├── skyler-common-job -- xxl-job 封装
      ├── skyler-common-log -- 日志服务
@@ -42,6 +43,7 @@ skyler
      ├── skyler-common-seata -- 分布式事务
      ├── skyler-common-security -- 安全工具类
      ├── skyler-common-swagger -- 接口文档
+     ├── skyler-common-tenant -- 多租户
      ├── skyler-common-feign -- feign 扩展封装
      └── skyler-common-xss -- xss 安全封装
 ├── skyler-register -- Nacos Server[8848]

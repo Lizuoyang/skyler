@@ -19,15 +19,15 @@
 
 package com.skyler.cloud.skyler.admin.api.entity;
 
-import com.alibaba.excel.annotation.ExcelIgnore;
 import com.alibaba.excel.annotation.ExcelProperty;
-import com.baomidou.mybatisplus.annotation.*;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.skyler.cloud.skyler.common.mybatis.base.TenantEntity;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.validation.constraints.NotBlank;
 import lombok.Data;
 
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -39,7 +39,7 @@ import java.time.LocalDateTime;
  */
 @Data
 @Schema(description = "日志")
-public class SysLog implements Serializable {
+public class SysLog extends TenantEntity implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -66,30 +66,6 @@ public class SysLog implements Serializable {
 	@ExcelProperty("日志标题")
 	@Schema(description = "日志标题")
 	private String title;
-
-	/**
-	 * 创建者
-	 */
-	@ExcelProperty("创建人")
-	@TableField(fill = FieldFill.INSERT)
-	@Schema(description = "创建人")
-	private String createBy;
-
-	/**
-	 * 创建时间
-	 */
-	@ExcelProperty("创建时间")
-	@TableField(fill = FieldFill.INSERT)
-	@Schema(description = "创建时间")
-	private LocalDateTime createTime;
-
-	/**
-	 * 更新时间
-	 */
-	@ExcelIgnore
-	@TableField(fill = FieldFill.UPDATE)
-	@Schema(description = "更新时间")
-	private LocalDateTime updateTime;
 
 	/**
 	 * 操作IP地址
@@ -145,14 +121,5 @@ public class SysLog implements Serializable {
 	@ExcelProperty("应用标识")
 	@Schema(description = "应用标识")
 	private String serviceId;
-
-	/**
-	 * 删除标记
-	 */
-	@TableLogic
-	@ExcelIgnore
-	@TableField(fill = FieldFill.INSERT)
-	@Schema(description = "删除标记,1:已删除,0:正常")
-	private String delFlag;
 
 }

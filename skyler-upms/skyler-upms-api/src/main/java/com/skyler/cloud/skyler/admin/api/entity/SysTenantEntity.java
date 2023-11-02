@@ -1,10 +1,13 @@
 package com.skyler.cloud.skyler.admin.api.entity;
 
-import com.baomidou.mybatisplus.annotation.*;
-import com.baomidou.mybatisplus.extension.activerecord.Model;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.skyler.cloud.skyler.common.mybatis.base.BaseEntity;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
 import java.time.LocalDateTime;
 
 /**
@@ -17,7 +20,7 @@ import java.time.LocalDateTime;
 @TableName("sys_tenant")
 @EqualsAndHashCode(callSuper = true)
 @Schema(description = "租户表")
-public class SysTenantEntity extends Model<SysTenantEntity> {
+public class SysTenantEntity extends BaseEntity {
 
 	/**
 	 * 套餐编号 - 系统
@@ -85,39 +88,4 @@ public class SysTenantEntity extends Model<SysTenantEntity> {
     @Schema(description="账号数量")
     private Integer accountCount;
 
-	/**
-	* 创建人
-	*/
-	@TableField(fill = FieldFill.INSERT)
-    @Schema(description="创建人")
-    private String createBy;
-
-	/**
-	* 创建时间
-	*/
-	@TableField(fill = FieldFill.INSERT)
-    @Schema(description="创建时间")
-    private LocalDateTime createTime;
-
-	/**
-	* 修改人
-	*/
-	@TableField(fill = FieldFill.INSERT_UPDATE)
-    @Schema(description="修改人")
-    private String updateBy;
-
-	/**
-	* 更新时间
-	*/
-	@TableField(fill = FieldFill.INSERT_UPDATE)
-    @Schema(description="更新时间")
-    private LocalDateTime updateTime;
-
-	/**
-	* 删除标记，0未删除，1已删除
-	*/
-    @TableLogic
-		@TableField(fill = FieldFill.INSERT)
-    @Schema(description="删除标记，0未删除，1已删除")
-    private String delFlag;
 }

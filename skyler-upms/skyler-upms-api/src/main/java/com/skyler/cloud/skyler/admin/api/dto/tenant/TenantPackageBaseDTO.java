@@ -23,13 +23,6 @@ public class TenantPackageBaseDTO {
 	private String name;
 
 	/**
-	 * 租户状态
-	 */
-	@Schema(description="租户状态")
-	@NotNull(message = "状态不能为空")
-	private Integer status;
-
-	/**
 	 * 备注
 	 */
 	@Schema(description="备注")

@@ -19,13 +19,12 @@
 
 package com.skyler.cloud.skyler.admin.api.entity;
 
-import com.baomidou.mybatisplus.annotation.*;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.skyler.cloud.skyler.common.mybatis.base.TenantEntity;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
-
-import java.io.Serializable;
-import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -37,7 +36,7 @@ import java.time.LocalDateTime;
  */
 @Data
 @Schema(description = "用户")
-public class SysUser implements Serializable {
+public class SysUser extends TenantEntity {
 
 	private static final long serialVersionUID = 1L;
 
@@ -66,42 +65,6 @@ public class SysUser implements Serializable {
 	@JsonIgnore
 	@Schema(description = "随机盐")
 	private String salt;
-
-	/**
-	 * 创建人
-	 */
-	@TableField(fill = FieldFill.INSERT)
-	@Schema(description = "创建人")
-	private String createBy;
-
-	/**
-	 * 修改人
-	 */
-	@TableField(fill = FieldFill.UPDATE)
-	@Schema(description = "修改人")
-	private String updateBy;
-
-	/**
-	 * 创建时间
-	 */
-	@TableField(fill = FieldFill.INSERT)
-	@Schema(description = "创建时间")
-	private LocalDateTime createTime;
-
-	/**
-	 * 修改时间
-	 */
-	@TableField(fill = FieldFill.UPDATE)
-	@Schema(description = "修改时间")
-	private LocalDateTime updateTime;
-
-	/**
-	 * 0-正常，1-删除
-	 */
-	@TableLogic
-	@TableField(fill = FieldFill.INSERT)
-	@Schema(description = "删除标记,1:已删除,0:正常")
-	private String delFlag;
 
 	/**
 	 * 锁定标记
