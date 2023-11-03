@@ -60,13 +60,11 @@ public class SysLogListener implements InitializingBean {
 		SysLogEventSource source = (SysLogEventSource) event.getSource();
 		SysLog sysLog = new SysLog();
 		BeanUtils.copyProperties(source, sysLog);
-
 		// json 格式刷参数放在异步中处理，提升性能
 		if (Objects.nonNull(source.getBody())) {
 			String params = objectMapper.writeValueAsString(source.getBody());
 			sysLog.setParams(StrUtil.subPre(params, logProperties.getMaxLength()));
 		}
-
 		remoteLogService.saveLog(sysLog, SecurityConstants.FROM_IN);
 	}
 

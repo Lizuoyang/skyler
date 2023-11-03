@@ -14,6 +14,7 @@ import com.skyler.cloud.skyler.admin.service.SysTenantService;
 import com.skyler.cloud.skyler.common.core.util.R;
 import com.skyler.cloud.skyler.common.log.annotation.SysLog;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -27,8 +28,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.security.PermitAll;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Objects;
@@ -128,4 +131,13 @@ public class SysTenantController {
     public List<SysTenantEntity> export(SysTenantEntity sysTenant,Long[] ids) {
         return sysTenantService.list(Wrappers.lambdaQuery(sysTenant).in(ArrayUtil.isNotEmpty(ids), SysTenantEntity::getId, ids));
     }
+
+	@GetMapping("/get-id-by-name")
+	@PermitAll
+	@Operation(summary = "使用租户名，获得租户编号", description = "登录界面，根据用户的租户名，获得租户编号")
+	@Parameter(name = "name", description = "租户名", required = true, example = "1024")
+	public R getTenantIdByName(@RequestParam("name") String name) {
+		SysTenantEntity tenantEntity = sysTenantService.getOne(Wrappers.<SysTenantEntity>lambdaQuery().eq(SysTenantEntity::getName, name));
+		return R.ok(tenantEntity != null ? tenantEntity.getId() : null);
+	}
 }

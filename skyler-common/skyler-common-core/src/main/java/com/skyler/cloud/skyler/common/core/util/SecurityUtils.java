@@ -17,13 +17,18 @@
 package com.skyler.cloud.skyler.common.core.util;
 
 import cn.hutool.core.text.CharSequenceUtil;
+import cn.hutool.core.util.NumberUtil;
 import com.skyler.cloud.skyler.common.core.beans.SkylerUser;
 import com.skyler.cloud.skyler.common.core.constant.SecurityConstants;
 import lombok.experimental.UtilityClass;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -35,13 +40,35 @@ import java.util.List;
  */
 @UtilityClass
 public class SecurityUtils {
-	public static final String HEADER_TENANT_ID = "tenant-id";
+	public static final String HEADER_TENANT_ID = "TENANT-ID";
 
 	/**
 	 * 获取Authentication
 	 */
 	public Authentication getAuthentication() {
 		return SecurityContextHolder.getContext().getAuthentication();
+	}
+
+	/**
+	 * 获得租户编号，从 header 中
+	 * 考虑到其它 framework 组件也会使用到租户编号，所以不得不放在 SecurityUtils 统一提供
+	 *
+	 * @param request 请求
+	 * @return 租户编号
+	 */
+	public static Long getTenantId(HttpServletRequest request) {
+		String tenantId = request.getHeader(HEADER_TENANT_ID);
+		return NumberUtil.isNumber(tenantId) ? Long.valueOf(tenantId) : null;
+	}
+
+
+	/**
+	 * 获取 HttpServletRequest
+	 *
+	 */
+	public static HttpServletRequest getRequest() {
+		RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
+		return (requestAttributes == null) ? null : ((ServletRequestAttributes) requestAttributes).getRequest();
 	}
 
 	/**

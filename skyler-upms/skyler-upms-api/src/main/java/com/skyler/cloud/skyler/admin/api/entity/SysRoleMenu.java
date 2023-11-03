@@ -51,10 +51,4 @@ public class SysRoleMenu extends Model<SysRoleMenu> {
 	@Schema(description = "菜单id")
 	private Long menuId;
 
-	/**
-	 * 多租户编号
-	 */
-	@Schema(description = "租户编号")
-	private Long tenantId;
-
 }

@@ -68,7 +68,7 @@ public interface SkylerUserDetailsService extends UserDetailsService, Ordered {
 
 		// 构造security用户
 		return new SkylerUser(user.getUserId(), user.getDeptId(), user.getUsername(),
-				SecurityConstants.BCRYPT + user.getPassword(), user.getPhone(), info.getRoles(), info.getRoleDataScopes(),true, true, true,
+				SecurityConstants.BCRYPT + user.getPassword(), user.getPhone(), info.getRoles(), info.getRoleDataScopes(), user.getTenantId(), true, true, true,
 				StrUtil.equals(user.getLockFlag(), CommonConstants.STATUS_NORMAL), authorities);
 	}
 

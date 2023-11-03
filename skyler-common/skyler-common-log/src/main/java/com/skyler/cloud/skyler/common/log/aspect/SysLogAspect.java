@@ -63,7 +63,6 @@ public class SysLogAspect {
 				log.error("@SysLog 解析SPEL {} 异常", expression);
 			}
 		}
-
 		SysLogEventSource logVo = SysLogUtils.getSysLog();
 		logVo.setTitle(value);
 		// 获取请求body参数

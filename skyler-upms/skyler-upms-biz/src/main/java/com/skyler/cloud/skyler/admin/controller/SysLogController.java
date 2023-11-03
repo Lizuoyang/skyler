@@ -22,21 +22,27 @@ package com.skyler.cloud.skyler.admin.controller;
 import cn.hutool.core.collection.CollUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.pig4cloud.plugin.excel.annotation.ResponseExcel;
 import com.skyler.cloud.skyler.admin.api.dto.SysLogDTO;
 import com.skyler.cloud.skyler.admin.api.entity.SysLog;
 import com.skyler.cloud.skyler.admin.service.SysLogService;
 import com.skyler.cloud.skyler.common.core.util.R;
 import com.skyler.cloud.skyler.common.security.annotation.Inner;
-import com.pig4cloud.plugin.excel.annotation.ResponseExcel;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import javax.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -85,7 +91,7 @@ public class SysLogController {
 	 */
 	@Inner
 	@PostMapping("/save")
-	public R save(@Valid @RequestBody SysLog sysLog) {
+	public R save(HttpServletRequest request,@Valid @RequestBody SysLog sysLog) {
 		return R.ok(sysLogService.saveLog(sysLog));
 	}
 
