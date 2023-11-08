@@ -21,7 +21,7 @@ package com.skyler.cloud.skyler.admin.api.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.skyler.cloud.skyler.common.mybatis.base.TenantEntity;
+import com.skyler.cloud.skyler.common.mybatis.base.BaseEntity;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -40,7 +40,7 @@ import javax.validation.constraints.NotNull;
 @Data
 @Schema(description = "部门")
 @EqualsAndHashCode(callSuper = true)
-public class SysDept extends TenantEntity {
+public class SysDept extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 

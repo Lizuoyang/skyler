@@ -22,7 +22,6 @@ CREATE TABLE `sys_dept` (
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   `del_flag` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '0' COMMENT '删除标志',
   `parent_id` bigint DEFAULT NULL COMMENT '父级部门ID',
-  `tenant_id` bigint NOT NULL DEFAULT 0 COMMENT '租户编号',
   PRIMARY KEY (`dept_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='部门管理';
 
@@ -30,20 +29,20 @@ CREATE TABLE `sys_dept` (
 -- Records of sys_dept
 -- ----------------------------
 BEGIN;
-INSERT INTO `sys_dept` VALUES (1, '总裁办', 1, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:07:49', '0', 0, 0);
-INSERT INTO `sys_dept` VALUES (2, '技术部', 2, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 1, 0);
-INSERT INTO `sys_dept` VALUES (3, '市场部', 3, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 1, 0);
-INSERT INTO `sys_dept` VALUES (4, '销售部', 4, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 1, 0);
-INSERT INTO `sys_dept` VALUES (5, '财务部', 5, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 1, 0);
-INSERT INTO `sys_dept` VALUES (6, '人事行政部', 6, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:53:36', '1', 1, 0);
-INSERT INTO `sys_dept` VALUES (7, '研发部', 7, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 2, 0);
-INSERT INTO `sys_dept` VALUES (8, 'UI设计部', 11, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 7, 0);
-INSERT INTO `sys_dept` VALUES (9, '产品部', 12, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 2, 0);
-INSERT INTO `sys_dept` VALUES (10, '渠道部', 13, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 3, 0);
-INSERT INTO `sys_dept` VALUES (11, '推广部', 14, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 3, 0);
-INSERT INTO `sys_dept` VALUES (12, '客服部', 15, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 4, 0);
-INSERT INTO `sys_dept` VALUES (13, '财务会计部', 16, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 5, 0);
-INSERT INTO `sys_dept` VALUES (14, '审计风控部', 17, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 14:06:57', '0', 5, 0);
+INSERT INTO `sys_dept` VALUES (1, '总裁办', 1, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:07:49', '0', 0);
+INSERT INTO `sys_dept` VALUES (2, '技术部', 2, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 1);
+INSERT INTO `sys_dept` VALUES (3, '市场部', 3, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 1);
+INSERT INTO `sys_dept` VALUES (4, '销售部', 4, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 1);
+INSERT INTO `sys_dept` VALUES (5, '财务部', 5, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 1);
+INSERT INTO `sys_dept` VALUES (6, '人事行政部', 6, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:53:36', '1', 1);
+INSERT INTO `sys_dept` VALUES (7, '研发部', 7, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 2);
+INSERT INTO `sys_dept` VALUES (8, 'UI设计部', 11, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 7);
+INSERT INTO `sys_dept` VALUES (9, '产品部', 12, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 2);
+INSERT INTO `sys_dept` VALUES (10, '渠道部', 13, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 3);
+INSERT INTO `sys_dept` VALUES (11, '推广部', 14, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 3);
+INSERT INTO `sys_dept` VALUES (12, '客服部', 15, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 4);
+INSERT INTO `sys_dept` VALUES (13, '财务会计部', 16, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 13:04:47', '0', 5);
+INSERT INTO `sys_dept` VALUES (14, '审计风控部', 17, 'admin', 'admin', '2023-04-03 13:04:47', '2023-04-03 14:06:57', '0', 5);
 COMMIT;
 
 -- ----------------------------
@@ -229,7 +228,6 @@ CREATE TABLE `sys_file` (
   `create_time` datetime DEFAULT NULL COMMENT '上传时间',
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `del_flag` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '0' COMMENT '删除标志',
-  `tenant_id` bigint NOT NULL DEFAULT 0 COMMENT '租户编号',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='文件管理表';
 
@@ -260,7 +258,6 @@ CREATE TABLE `sys_log` (
   `time` bigint DEFAULT NULL COMMENT '执行时间',
   `del_flag` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '0' COMMENT '删除标志',
   `exception` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '异常信息',
-  `tenant_id` bigint NOT NULL DEFAULT 0 COMMENT '租户编号',
   PRIMARY KEY (`id`) USING BTREE,
   KEY `sys_log_request_uri` (`request_uri`) USING BTREE,
   KEY `sys_log_type` (`log_type`) USING BTREE,
@@ -380,48 +377,6 @@ INSERT INTO `sys_menu` VALUES (9063, '删除', NULL, 'codegen_group_del', NULL, 
 INSERT INTO `sys_menu` VALUES (9064, '导出', NULL, 'codegen_group_export', NULL, 9059, NULL, '0', 0, '0', '0', '1', 'admin', '2023-02-21 15:09:22', ' ', NULL, '0');
 INSERT INTO `sys_menu` VALUES (9065, '字段管理', 'field', NULL, '/gen/field-type/index', 9050, 'iconfont icon-fuwenben', '1', 0, '0', '0', '0', 'admin', '2023-02-23 20:05:09', 'admin', '2023-07-05 10:27:31', '0');
 
--- 租户表菜单菜单SQL
-INSERT INTO `sys_menu` VALUES (9066, '租户管理', 'log', NULL, '/admin/tenant', 2000, 'iconfont icon-siweidaotu', '1', 0, '0', '0', '0', 'admin', '2023-03-02 12:26:42', 'admin', '2023-07-05 10:27:53', '0');
-insert into sys_menu ( menu_id,parent_id, path, permission, menu_type, icon, del_flag, create_time, sort_order, update_time, name, en_name)
-values (1698116717211, '9066', '/admin/tenant/index', '', '0', 'fa fa-universal-access', '0', null , '8', null , '租户列表', 'tenant');
-
--- 租户表菜单对应按钮SQL
-insert into sys_menu ( menu_id,parent_id, permission, menu_type, path, icon, del_flag, create_time, sort_order, update_time, name)
-values (1698116717212,1698116717211, 'admin_tenant_view', '1', null, '1',  '0', null, '0', null, '租户查看');
-
-insert into sys_menu ( menu_id,parent_id, permission, menu_type, path, icon, del_flag, create_time, sort_order, update_time, name)
-values (1698116717213,1698116717211, 'admin_tenant_add', '1', null, '1',  '0', null, '1', null, '租户新增');
-
-insert into sys_menu (menu_id, parent_id, permission, menu_type, path, icon,  del_flag, create_time, sort_order, update_time, name)
-values (1698116717214,1698116717211, 'admin_tenant_edit', '1', null, '1',  '0', null, '2', null, '租户修改');
-
-insert into sys_menu (menu_id, parent_id, permission, menu_type, path, icon, del_flag, create_time, sort_order, update_time, name)
-values (1698116717215,1698116717211, 'admin_tenant_del', '1', null, '1',  '0', null, '3', null, '租户删除');
-
-insert into sys_menu ( menu_id,parent_id, permission, menu_type, path, icon, del_flag, create_time, sort_order, update_time, name)
-values (1698116717216,1698116717211, 'admin_tenant_export', '1', null, '1',  '0', null, '3', null, '导入导出');
-
--- 该脚本不要直接执行， 注意维护菜单的父节点ID 默认 父节点-1
-
--- 租户套餐表菜单SQL
-insert into sys_menu ( menu_id,parent_id, path, permission, menu_type, icon, del_flag, create_time, sort_order, update_time, name, en_name)
-values (1698300743797, '9066', '/admin/tenantPackge/index', '', '0', 'fa fa-gift', '0', null , '9', null , '租户套餐', 'tenantPackage');
-
--- 租户套餐表菜单对应按钮SQL
-insert into sys_menu ( menu_id,parent_id, permission, menu_type, path, icon, del_flag, create_time, sort_order, update_time, name)
-values (1698300743798,1698300743797, 'admin_tenantPackge_view', '1', null, '1',  '0', null, '0', null, '租户套餐表查看');
-
-insert into sys_menu ( menu_id,parent_id, permission, menu_type, path, icon, del_flag, create_time, sort_order, update_time, name)
-values (1698300743799,1698300743797, 'admin_tenantPackge_add', '1', null, '1',  '0', null, '1', null, '租户套餐表新增');
-
-insert into sys_menu (menu_id, parent_id, permission, menu_type, path, icon,  del_flag, create_time, sort_order, update_time, name)
-values (1698300743800,1698300743797, 'admin_tenantPackge_edit', '1', null, '1',  '0', null, '2', null, '租户套餐表修改');
-
-insert into sys_menu (menu_id, parent_id, permission, menu_type, path, icon, del_flag, create_time, sort_order, update_time, name)
-values (1698300743801,1698300743797, 'admin_tenantPackge_del', '1', null, '1',  '0', null, '3', null, '租户套餐表删除');
-
-insert into sys_menu ( menu_id,parent_id, permission, menu_type, path, icon, del_flag, create_time, sort_order, update_time, name)
-values (1698300743802,1698300743797, 'admin_tenantPackge_export', '1', null, '1',  '0', null, '3', null, '导入导出');
 COMMIT;
 
 -- ----------------------------
@@ -477,7 +432,6 @@ CREATE TABLE `sys_post` (
   `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '创建人',
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '更新人',
-  `tenant_id` bigint NOT NULL DEFAULT 0 COMMENT '租户编号',
   PRIMARY KEY (`post_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='岗位信息表';
 
@@ -485,7 +439,7 @@ CREATE TABLE `sys_post` (
 -- Records of sys_post
 -- ----------------------------
 BEGIN;
-INSERT INTO `sys_post` VALUES (1, 'CTO', 'CTO', 0, 'CTOOO', '0', '2022-03-26 13:48:17', '', '2023-03-08 16:03:35', 'admin', 0);
+INSERT INTO `sys_post` VALUES (1, 'CTO', 'CTO', 0, 'CTOOO', '0', '2022-03-26 13:48:17', '', '2023-03-08 16:03:35', 'admin');
 COMMIT;
 
 -- ----------------------------
@@ -539,7 +493,6 @@ CREATE TABLE `sys_role` (
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `del_flag` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '0' COMMENT '删除标记，0未删除，1已删除',
-  `tenant_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '租户编号',
   PRIMARY KEY (`role_id`) USING BTREE,
   KEY `role_idx1_role_code` (`role_code`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='系统角色表';
@@ -548,8 +501,8 @@ CREATE TABLE `sys_role` (
 -- Records of sys_role
 -- ----------------------------
 BEGIN;
-INSERT INTO `sys_role` VALUES (1, '管理员', 'ROLE_ADMIN', '管理员', '1', '', 'admin', '2017-10-29 15:45:51', '2023-07-07 14:55:07', '0', 0);
-INSERT INTO `sys_role` VALUES (2, '普通用户', 'GENERAL_USER', '普通用户', '1', '', 'admin', '2022-03-31 17:03:15', '2023-04-03 02:28:51', '0', 0);
+INSERT INTO `sys_role` VALUES (1, '管理员', 'ROLE_ADMIN', '管理员', '1', '', 'admin', '2017-10-29 15:45:51', '2023-07-07 14:55:07', '0');
+INSERT INTO `sys_role` VALUES (2, '普通用户', 'GENERAL_USER', '普通用户', '1', '', 'admin', '2022-03-31 17:03:15', '2023-04-03 02:28:51', '0');
 COMMIT;
 
 -- ----------------------------
@@ -676,7 +629,6 @@ CREATE TABLE `sys_user` (
   `qq_openid` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'QQ openId',
   `gitee_login` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '码云标识',
   `osc_id` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '开源中国标识',
-  `tenant_id` bigint NOT NULL DEFAULT 0 COMMENT '租户编号',
   PRIMARY KEY (`user_id`) USING BTREE,
   KEY `user_wx_openid` (`wx_openid`) USING BTREE,
   KEY `user_qq_openid` (`qq_openid`) USING BTREE,
@@ -687,7 +639,7 @@ CREATE TABLE `sys_user` (
 -- Records of sys_user
 -- ----------------------------
 BEGIN;
-INSERT INTO `sys_user` VALUES (1, 'admin', '$2a$10$c/Ae0pRjJtMZg3BnvVpO.eIK6WYWVbKTzqgdy3afR7w.vd.xi3Mgy', '', '17034642999', '/admin/sys-file/s3demo/7ff4ca6b7bf446f3a5a13ac016dc21af.png', '管理员', '管理员', 'skyler4cloud@qq.com', 4, ' ', 'admin', '2018-04-20 07:15:18', '2023-07-07 14:55:40', '0', '0', NULL, 'oBxPy5E-v82xWGsfzZVzkD3wEX64', NULL, 'log4j', NULL, 0);
+INSERT INTO `sys_user` VALUES (1, 'admin', '$2a$10$c/Ae0pRjJtMZg3BnvVpO.eIK6WYWVbKTzqgdy3afR7w.vd.xi3Mgy', '', '17034642999', '/admin/sys-file/s3demo/7ff4ca6b7bf446f3a5a13ac016dc21af.png', '管理员', '管理员', 'skyler4cloud@qq.com', 4, ' ', 'admin', '2018-04-20 07:15:18', '2023-07-07 14:55:40', '0', '0', NULL, 'oBxPy5E-v82xWGsfzZVzkD3wEX64', NULL, 'log4j', NULL);
 COMMIT;
 
 -- ----------------------------
@@ -726,47 +678,3 @@ INSERT INTO `sys_user_role` VALUES (1676492190299299842, 2);
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
-
--- ----------------------------
--- Table structure for sys_tenant
--- ----------------------------
-DROP TABLE IF EXISTS `sys_tenant`;
-CREATE TABLE `sys_tenant`  (
-  `id` bigint NOT NULL AUTO_INCREMENT COMMENT '租户编号',
-  `name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '租户名',
-  `contact_user_id` bigint NULL DEFAULT NULL COMMENT '联系人的用户编号',
-  `contact_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '联系人',
-  `contact_mobile` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '联系手机',
-  `status` tinyint NOT NULL DEFAULT 0 COMMENT '租户状态（0正常 1停用）',
-  `domain` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '绑定域名',
-  `package_id` bigint NOT NULL COMMENT '租户套餐编号',
-  `expire_time` datetime NOT NULL COMMENT '过期时间',
-  `account_count` int NOT NULL COMMENT '账号数量',
-  `create_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT ' ' COMMENT '创建人',
-  `update_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT ' ' COMMENT '修改人',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-  `del_flag` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '0' COMMENT '删除标记，0未删除，1已删除',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 151 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '租户表';
-
-INSERT INTO `sys_tenant` VALUES (0, '系统租户', 1, 'admin', '17752846201', 0, '', 0, '2024-11-01 00:00:00', 9999, 'admin', 'admin', '2023-11-01 11:44:01', '2023-11-01 11:44:01', '0');
-
-
--- ----------------------------
--- Table structure for sys_tenant_package
--- ----------------------------
-DROP TABLE IF EXISTS `sys_tenant_package`;
-CREATE TABLE `sys_tenant_package`  (
-  `id` bigint NOT NULL AUTO_INCREMENT COMMENT '套餐编号',
-  `name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '套餐名',
-  `status` tinyint NOT NULL DEFAULT 0 COMMENT '租户状态（0正常 1停用）',
-  `remark` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '备注',
-  `menu_ids` varchar(2048) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '关联的菜单编号',
-  `create_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT ' ' COMMENT '创建人',
-  `update_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT ' ' COMMENT '修改人',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-  `del_flag` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '0' COMMENT '删除标记，0未删除，1已删除',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 112 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '租户套餐表';

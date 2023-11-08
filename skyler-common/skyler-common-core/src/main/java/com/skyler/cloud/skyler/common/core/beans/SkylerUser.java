@@ -71,13 +71,7 @@ public class SkylerUser extends User implements OAuth2AuthenticatedPrincipal {
 	@Getter
 	private String[] roleDataScopes;
 
-	/**
-	 * 租户id
-	 */
-	@Getter
-	private Long tenantId;
-
-	public SkylerUser(Long id, Long deptId, String username, String password, String phone, Long[] roles, String[] roleDataScopes,Long tenantId, boolean enabled,
+	public SkylerUser(Long id, Long deptId, String username, String password, String phone, Long[] roles, String[] roleDataScopes , boolean enabled,
                       boolean accountNonExpired, boolean credentialsNonExpired, boolean accountNonLocked,
                       Collection<? extends GrantedAuthority> authorities) {
 		super(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
@@ -86,7 +80,6 @@ public class SkylerUser extends User implements OAuth2AuthenticatedPrincipal {
 		this.phone = phone;
 		this.roles = roles;
 		this.roleDataScopes = roleDataScopes;
-		this.tenantId = tenantId;
 	}
 
 	/**

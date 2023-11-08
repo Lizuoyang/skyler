@@ -59,7 +59,6 @@ public class SysLogUtils {
 		sysLog.setUserAgent(request.getHeader(HttpHeaders.USER_AGENT));
 		sysLog.setCreateBy(getUsername());
 		sysLog.setServiceId(getClientId());
-		sysLog.setTenantId(SecurityUtils.getTenantId(request));
 		// get 参数脱敏
 		SkylerLogProperties logProperties = SpringContextHolder.getBean(SkylerLogProperties.class);
 		Map<String, String[]> paramsMap = MapUtil.removeAny(request.getParameterMap(),

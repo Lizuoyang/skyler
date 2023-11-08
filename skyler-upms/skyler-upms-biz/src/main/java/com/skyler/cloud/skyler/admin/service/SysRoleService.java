@@ -20,14 +20,12 @@
 package com.skyler.cloud.skyler.admin.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.skyler.cloud.skyler.admin.api.dto.role.RoleCreateDTO;
 import com.skyler.cloud.skyler.admin.api.entity.SysRole;
 import com.skyler.cloud.skyler.admin.api.vo.RoleExcelVO;
 import com.skyler.cloud.skyler.admin.api.vo.RoleVO;
 import com.skyler.cloud.skyler.common.core.util.R;
 import org.springframework.validation.BindingResult;
 
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -56,34 +54,11 @@ public interface SysRoleService extends IService<SysRole> {
 	List<SysRole> findRolesByRoleIds(List<Long> roleIdList, String key);
 
 	/**
-	 * 判断角色编号数组中，是否有管理员
-	 *
-	 * @param ids 角色编号数组
-	 * @return 是否有管理员
-	 */
-	boolean hasAnySuperAdmin(Collection<Long> ids);
-
-	/**
-	 * 获得角色，从缓存中
-	 *
-	 * @param id 角色编号
-	 * @return 角色
-	 */
-	SysRole getRoleFromCache(Long id);
-
-	/**
 	 * 通过角色ID，删除角色
 	 * @param ids
 	 * @return
 	 */
 	Boolean removeRoleByIds(Long[] ids);
-
-	/**
-	 * 创建角色
-	 * @param roleCreateDTO
-	 * @return {@link Long}
-	 */
-	Long createRole(RoleCreateDTO roleCreateDTO);
 
 	/**
 	 * 根据角色菜单列表

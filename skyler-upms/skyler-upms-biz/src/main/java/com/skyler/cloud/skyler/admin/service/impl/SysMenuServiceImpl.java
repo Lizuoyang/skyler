@@ -77,12 +77,6 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
 	}
 
 	@Override
-	@Cacheable(value = CacheConstants.TENANT_MENU_DETAILS, key = "#tenantPackageId", unless = "#result.isEmpty()")
-	public List<SysMenu> findMenuByTenantPackgeId(Long tenantPackageId) {
-		return baseMapper.listMenusByTenantPackageId(tenantPackageId);
-	}
-
-	@Override
 	@Transactional(rollbackFor = Exception.class)
 	@CacheEvict(value = CacheConstants.MENU_DETAILS, allEntries = true)
 	public R removeMenuById(Long id) {

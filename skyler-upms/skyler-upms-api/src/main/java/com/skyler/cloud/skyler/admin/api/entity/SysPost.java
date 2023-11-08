@@ -20,7 +20,7 @@ package com.skyler.cloud.skyler.admin.api.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.skyler.cloud.skyler.common.mybatis.base.TenantEntity;
+import com.skyler.cloud.skyler.common.mybatis.base.BaseEntity;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -38,7 +38,7 @@ import javax.validation.constraints.NotNull;
 @TableName("sys_post")
 @EqualsAndHashCode(callSuper = true)
 @Schema(description = "岗位信息表")
-public class SysPost extends TenantEntity {
+public class SysPost extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 

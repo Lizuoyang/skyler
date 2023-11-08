@@ -3,4 +3,4 @@
  *
  * 目前使用 MapStruct 框架
  */
-package com.skyler.cloud.skyler.admin.api.convert.tenant;
+package com.skyler.cloud.skyler.admin.api.convert;

@@ -43,6 +43,5 @@
         <module>skyler-common-swagger</module>
         <module>skyler-common-xss</module>
         <module>skyler-common-datapermission</module>
-        <module>skyler-common-tenant</module>
     </modules>
 </project>

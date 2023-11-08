@@ -22,7 +22,7 @@ package com.skyler.cloud.skyler.admin.api.entity;
 import com.alibaba.excel.annotation.ExcelProperty;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.skyler.cloud.skyler.common.mybatis.base.TenantEntity;
+import com.skyler.cloud.skyler.common.mybatis.base.BaseEntity;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
@@ -39,7 +39,7 @@ import java.io.Serializable;
  */
 @Data
 @Schema(description = "日志")
-public class SysLog extends TenantEntity implements Serializable {
+public class SysLog extends BaseEntity implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 

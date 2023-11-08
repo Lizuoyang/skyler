@@ -19,7 +19,7 @@ package com.skyler.cloud.skyler.admin.api.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.skyler.cloud.skyler.common.mybatis.base.TenantEntity;
+import com.skyler.cloud.skyler.common.mybatis.base.BaseEntity;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -33,7 +33,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @Schema(description = "文件")
 @EqualsAndHashCode(callSuper = true)
-public class SysFile extends TenantEntity {
+public class SysFile extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 
