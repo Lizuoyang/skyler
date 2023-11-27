@@ -118,22 +118,6 @@
                 <artifactId>mysql-connector-j</artifactId>
                 <version>${mysql.version}</version>
             </dependency>
-			<!-- 接口文档 -->
-			<dependency>
-				<groupId>com.github.xiaoymin</groupId>
-				<artifactId>knife4j-openapi3-spring-boot-starter</artifactId>
-				<version>${knife4j.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>io.swagger.core.v3</groupId>
-				<artifactId>swagger-annotations-jakarta</artifactId>
-				<version>${swagger.core.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.github.xiaoymin</groupId>
-				<artifactId>knife4j-springdoc-ui</artifactId>
-				<version>${knife4j.ui.version}</version>
-			</dependency>
             <!--springdoc -->
             <dependency>
                 <groupId>org.springdoc</groupId>
