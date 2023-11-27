@@ -69,5 +69,9 @@
             <artifactId>spring-webmvc</artifactId>
             <scope>provided</scope>
         </dependency>
+		<dependency>
+			<groupId>com.github.xiaoymin</groupId>
+			<artifactId>knife4j-springdoc-ui</artifactId>
+		</dependency>
     </dependencies>
 </project>
